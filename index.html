@@ -33,105 +33,284 @@
 
 <style>
 :root{--green:#315b42;--deep:#183c2a;--sage:#eaf1e8;--cream:#fbf8f0;--gold:#c49a51;--ink:#26342b;--muted:#6d786f;--white:#fff;--line:#e5e9e2;--shadow:0 16px 45px rgba(31,58,40,.10);--radius:22px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55}button,input,select,textarea{font:inherit}button{cursor:pointer}.topbar{background:var(--deep);color:#f7f3e9;text-align:center;padding:8px 14px;font-size:12px;letter-spacing:.08em}.header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{max-width:1180px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--deep)}.brand-mark{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#f7e9f1,#e3efdf);color:#7b3471;font-family:Georgia,serif;font-size:25px;border:1px solid #ead7e6}.brand strong{display:block;font-family:Georgia,serif;font-size:22px;letter-spacing:.04em;line-height:1.1}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:.12em;text-transform:uppercase}.navlinks{display:flex;gap:24px;align-items:center}.navlinks a{color:#425348;text-decoration:none;font-size:13px;font-weight:650}.nav-actions{display:flex;gap:10px;align-items:center}.iconbtn,.menu-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 14px;color:var(--deep);font-weight:700}.cart-count{display:inline-grid;place-items:center;background:var(--green);color:white;width:21px;height:21px;border-radius:50%;font-size:11px;margin-left:5px}.menu-btn{display:none}.hero{background:linear-gradient(115deg,#f7f8f0 0%,#edf4e9 52%,#fff9ed 100%);overflow:hidden}.hero-inner{max-width:1180px;margin:auto;padding:65px 22px 60px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:35px;min-height:500px}.eyebrow{color:#7a6a3e;text-transform:uppercase;letter-spacing:.19em;font-size:11px;font-weight:800}.hero h1{font-family:Georgia,serif;font-weight:500;font-size:clamp(43px,6vw,74px);line-height:.98;letter-spacing:-.045em;color:var(--deep);margin:18px 0}.hero h1 em{color:#8b4779;font-style:normal}.hero p{max-width:490px;color:#59675c;font-size:17px;margin:0 0 25px}.btn{border:0;border-radius:999px;padding:13px 22px;background:var(--green);color:#fff;font-weight:750;box-shadow:0 7px 18px rgba(49,91,66,.18);transition:.2s}.btn:hover{transform:translateY(-2px);background:var(--deep)}.btn.secondary{background:#fff;color:var(--deep);border:1px solid #d9e3d8;box-shadow:none}.btn.gold{background:#b88b43}.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}.hero-visual{position:relative;min-height:360px;display:grid;place-items:center}.hero-visual img{width:min(100%,510px);height:390px;object-fit:contain;filter:drop-shadow(0 20px 25px rgba(49,75,49,.12));border-radius:18px}.hero-note{position:absolute;right:0;bottom:5px;background:#fff;border:1px solid #e7e9dc;border-radius:18px;padding:13px 17px;box-shadow:var(--shadow);font-size:12px;color:var(--muted)}.hero-note b{display:block;color:var(--deep);font-size:16px}.trustbar{max-width:1180px;margin:-1px auto 0;padding:17px 22px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.trust-item{text-align:center;color:#5c6b60;font-size:12px;font-weight:650}.trust-item span{display:block;color:var(--green);font-size:19px;margin-bottom:3px}.section{max-width:1180px;margin:auto;padding:76px 22px}.section-head{text-align:center;max-width:680px;margin:0 auto 35px}.section-head .eyebrow{color:#8c7745}.section h2{font-family:Georgia,serif;font-weight:500;font-size:clamp(32px,4vw,47px);color:var(--deep);margin:8px 0 10px;letter-spacing:-.03em}.section-head p{color:var(--muted);margin:0}.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.product-card{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:0 7px 28px rgba(30,58,39,.045);transition:.25s;display:flex;flex-direction:column}.product-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.product-image{height:245px;background:#f5f5ed;position:relative;overflow:hidden}.product-image img{width:100%;height:100%;object-fit:cover;object-position:center}.product-image .weight-tag{position:absolute;left:13px;top:13px;background:rgba(255,255,255,.92);border-radius:999px;padding:6px 10px;font-size:11px;font-weight:800;color:var(--deep)}.product-body{padding:18px;display:flex;flex-direction:column;flex:1}.product-body h3{font-family:Georgia,serif;font-weight:500;font-size:22px;margin:0 0 3px;color:var(--deep)}.product-body .sub{font-size:12px;color:var(--muted);margin:0 0 12px}.price-row{display:flex;justify-content:space-between;align-items:center;margin:4px 0 12px}.price{font-size:22px;font-weight:850;color:var(--deep)}.price small{font-size:11px;color:var(--muted);font-weight:500}.badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:13px}.badge{font-size:10px;border:1px solid #d8e6d7;color:#386347;background:#f2f8f0;border-radius:999px;padding:4px 8px;font-weight:750}.ingredients{border-top:1px solid var(--line);padding-top:11px;margin-top:auto}.ingredients summary{font-size:12px;color:var(--green);font-weight:800;cursor:pointer}.ingredients p{font-size:11px;color:#69756b;margin:7px 0 13px}.add-btn{width:100%;padding:11px 14px;border:0;border-radius:12px;background:var(--deep);color:white;font-weight:750}.add-btn:hover{background:#477454}.story{background:var(--cream)}.story-inner{max-width:1180px;margin:auto;padding:75px 22px;display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}.story-image img{width:100%;max-height:480px;object-fit:cover;border-radius:25px;box-shadow:var(--shadow)}.story-copy p{color:#667267}.story-points{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:25px 0}.point{background:#fff;border:1px solid #e9eadf;border-radius:15px;padding:14px;font-size:12px;color:#647066}.point b{display:block;color:var(--deep);font-size:14px;margin-bottom:3px}.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.gallery img{width:100%;height:280px;object-fit:cover;border-radius:17px;border:1px solid var(--line)}.delivery-strip{background:var(--deep);color:#fff}.delivery-inner{max-width:1180px;margin:auto;padding:45px 22px;display:flex;justify-content:space-between;align-items:center;gap:25px}.delivery-inner h2{font-family:Georgia,serif;font-weight:500;font-size:32px;margin:0 0 5px}.delivery-inner p{color:#d1ddd2;margin:0;font-size:13px}.delivery-inner .delivery-pill{border:1px solid #7d9c83;padding:12px 18px;border-radius:999px;white-space:nowrap;font-size:13px;font-weight:750}.footer{background:#142e21;color:#dce7dc;padding:48px 22px 20px}.footer-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:35px}.footer h3{font-family:Georgia,serif;font-size:24px;margin:0 0 10px;color:white}.footer p,.footer a{font-size:12px;color:#c2d0c4}.footer a{display:block;text-decoration:none;margin:7px 0}.copyright{max-width:1180px;margin:30px auto 0;padding-top:15px;border-top:1px solid #355342;font-size:11px;color:#9fb1a2}.overlay{position:fixed;inset:0;background:rgba(13,28,19,.55);z-index:40;display:none;justify-content:flex-end}.overlay.show{display:flex}.drawer{background:white;width:min(510px,100%);height:100%;overflow:auto;padding:25px;box-shadow:-15px 0 45px rgba(0,0,0,.15)}.drawer-head{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:15px}.drawer-head h2{font-family:Georgia,serif;font-weight:500;color:var(--deep);margin:0;font-size:29px}.close{border:0;background:#f0f3ef;border-radius:50%;width:36px;height:36px;font-size:20px}.cart-items{padding:15px 0}.empty{padding:40px 10px;text-align:center;color:var(--muted)}.cart-item{display:grid;grid-template-columns:66px 1fr auto;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);align-items:center}.cart-item img{width:66px;height:66px;object-fit:cover;border-radius:12px}.cart-item b{display:block;color:var(--deep);font-size:14px}.cart-item small{color:var(--muted);font-size:11px}.qty{display:flex;align-items:center;gap:9px;margin-top:7px}.qty button{width:25px;height:25px;border:1px solid var(--line);border-radius:7px;background:#fff}.remove{border:0;background:none;color:#a34c4c;font-size:11px;margin-left:6px}.summary{border-top:1px solid var(--line);padding-top:15px}.sumline{display:flex;justify-content:space-between;gap:15px;margin:8px 0;font-size:13px;color:#68736a}.sumline.total{font-size:18px;color:var(--deep);font-weight:850;border-top:1px dashed #d7ded5;padding-top:12px;margin-top:14px}.muted-note{font-size:11px;color:#78847a}.checkout-form{margin-top:20px}.checkout-form h3{font-family:Georgia,serif;font-weight:500;color:var(--deep);font-size:23px;margin:15px 0 10px}.field{margin:10px 0}.field label{display:block;font-size:11px;font-weight:800;color:#526256;margin-bottom:5px}.field input,.field textarea,.field select{width:100%;border:1px solid #dce3da;border-radius:11px;padding:11px 12px;outline:none;background:#fff;color:var(--ink)}.field input:focus,.field textarea:focus,.field select:focus{border-color:#709579;box-shadow:0 0 0 3px #eaf3e9}.field textarea{min-height:75px;resize:vertical}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px}.delivery-calc{background:#f4f8f2;border:1px solid #e0eadd;border-radius:14px;padding:13px;margin:12px 0}.delivery-calc .sumline{margin:3px 0}.pay-options{display:grid;gap:9px;margin:10px 0}.pay-option{border:1px solid #dfe6dc;border-radius:12px;padding:12px;display:flex;gap:9px;align-items:flex-start;font-size:12px}.pay-option input{margin-top:3px;accent-color:var(--green)}.pay-option b{display:block;font-size:13px;color:var(--deep)}.upi-box{background:#fbf8ef;border:1px dashed #d7bd83;padding:12px;border-radius:12px;font-size:12px;display:block}.copy-btn{border:1px solid #d8c79d;border-radius:8px;background:#fff;padding:6px 9px;font-size:11px;font-weight:800}.notice{font-size:11px;color:#7a6a43;background:#fff8e8;border-radius:10px;padding:10px;margin:10px 0}.form-error{color:#b33c3c;font-size:12px;min-height:17px}.full{width:100%;margin-top:10px}.receipt{position:fixed;inset:0;background:rgba(12,30,19,.65);z-index:60;display:none;align-items:center;justify-content:center;padding:16px}.receipt.show{display:flex}.receipt-card{width:min(540px,100%);max-height:90vh;overflow:auto;background:white;border-radius:22px;padding:25px;box-shadow:var(--shadow)}.receipt-card h2{font-family:Georgia,serif;color:var(--deep);font-weight:500;margin:0}.receipt-status{display:inline-block;padding:6px 10px;background:#fff4d9;color:#80602b;border-radius:99px;font-size:11px;font-weight:850;margin:10px 0}.receipt-details{background:#f7f9f5;padding:14px;border-radius:13px;font-size:12px;white-space:pre-wrap;margin:13px 0}.admin-modal{position:fixed;inset:0;background:rgba(12,30,19,.65);z-index:70;display:none;align-items:center;justify-content:center;padding:15px}.admin-modal.show{display:flex}.admin-card{width:min(780px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:20px;padding:24px}.admin-card h2{font-family:Georgia,serif;color:var(--deep);font-weight:500;margin-top:0}.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.admin-orders{border-top:1px solid var(--line);margin-top:18px;padding-top:12px}.order-admin{border:1px solid var(--line);border-radius:12px;padding:12px;margin:9px 0;font-size:12px}.admin-actions{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.small-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;font-size:11px;font-weight:750}.hidden{display:none!important}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);background:#1c3828;color:#fff;padding:11px 17px;border-radius:999px;font-size:12px;opacity:0;pointer-events:none;transition:.25s;z-index:100}.toast.show{opacity:1;transform:translate(-50%,0)}.admin-link{border:0;background:none;color:#aebdb0;font-size:11px;text-decoration:underline;padding:0;cursor:pointer}.loc-btn{border:1px solid var(--green);background:var(--sage);color:var(--deep);border-radius:8px;padding:6px 10px;font-size:11px;font-weight:750;margin-top:6px;cursor:pointer}
-@media(max-width:900px){.product-grid{grid-template-columns:repeat(2,1fr)}.hero-inner{min-height:420px}.hero-visual img{height:330px}.navlinks{gap:13px}.story-inner{gap:25px}}
-@media(max-width:650px){.topbar{font-size:10px}.nav{padding:11px 15px}.brand strong{font-size:19px}.navlinks{display:none;position:absolute;top:68px;left:0;right:0;background:#fff;padding:18px 22px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.navlinks.open{display:flex}.menu-btn{display:inline-block}.nav-actions .iconbtn{padding:9px 11px}.hero-inner{grid-template-columns:1fr;padding:48px 20px 35px;gap:10px}.hero h1{font-size:51px}.hero p{font-size:15px}.hero-visual{min-height:270px}.hero-visual img{height:285px}.hero-note{right:3px;bottom:-3px}.trustbar{padding:15px 10px;grid-template-columns:repeat(3,1fr)}.trust-item{font-size:10px}.section{padding:55px 16px}.product-grid{grid-template-columns:1fr 1fr;gap:10px}.product-image{height:170px}.product-body{padding:12px}.product-body h3{font-size:17px}.product-body .sub{font-size:10px}.price{font-size:18px}.ingredients p{font-size:10px}.add-btn{font-size:11px;padding:10px 7px}.story-inner{grid-template-columns:1fr;padding:55px 17px}.story-image{order:2}.story-points{gap:8px}.point{padding:11px;font-size:10px}.point b{font-size:12px}.gallery{grid-template-columns:1fr 1fr}.gallery img{height:190px}.delivery-inner{padding:35px 18px;display:block}.delivery-inner .delivery-pill{display:inline-block;margin-top:16px}.footer-inner{grid-template-columns:1fr 1fr;gap:20px}.footer-inner>div:first-child{grid-column:1/-1}.drawer{padding:18px}.two-col,.admin-grid{grid-template-columns:1fr 1fr}.receipt-card{padding:19px}}
-@media(max-width:380px){.product-grid{grid-template-columns:1fr}.product-image{height:240px}.two-col{grid-template-columns:1fr}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55}button,input,select,textarea{font:inherit}button{cursor:pointer}.topbar{background:var(--deep);color:#f7f3e9;text-align:center;padding:8px 14px;font-size:12px;letter-spacing:.08em}.header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{max-width:1180px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--deep)}.brand-mark{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#f7e9f1,#e3efdf);color:#7b3471;font-family:Georgia,serif;font-size:25px;border:1px solid #ead7e6}.brand strong{display:block;font-family:Georgia,serif;font-size:22px;letter-spacing:.04em;line-height:1.1}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:.12em;text-transform:uppercase}.navlinks{display:flex;gap:20px;align-items:center}.navlinks a{color:#425348;text-decoration:none;font-size:13px;font-weight:650}.nav-actions{display:flex;gap:10px;align-items:center}.iconbtn,.menu-btn,.wholesale-nav-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 13px;color:var(--deep);font-weight:700;font-size:12px}.wholesale-nav-btn{background:#fbf5ea;border-color:#e4d1aa;color:#8a6220}.cart-count{display:inline-grid;place-items:center;background:var(--green);color:white;width:21px;height:21px;border-radius:50%;font-size:11px;margin-left:5px}.menu-btn{display:none}.hero{background:linear-gradient(115deg,#f7f8f0 0%,#edf4e9 52%,#fff9ed 100%);overflow:hidden}.hero-inner{max-width:1180px;margin:auto;padding:65px 22px 60px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:35px;min-height:500px}.eyebrow{color:#7a6a3e;text-transform:uppercase;letter-spacing:.19em;font-size:11px;font-weight:800}.hero h1{font-family:Georgia,serif;font-weight:500;font-size:clamp(43px,6vw,74px);line-height:.98;letter-spacing:-.045em;color:var(--deep);margin:18px 0}.hero h1 em{color:#8b4779;font-style:normal}.hero p{max-width:490px;color:#59675c;font-size:17px;margin:0 0 25px}.btn{border:0;border-radius:999px;padding:13px 22px;background:var(--green);color:#fff;font-weight:750;box-shadow:0 7px 18px rgba(49,91,66,.18);transition:.2s}.btn:hover{transform:translateY(-2px);background:var(--deep)}.btn.secondary{background:#fff;color:var(--deep);border:1px solid #d9e3d8;box-shadow:none}.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}.hero-visual{position:relative;min-height:360px;display:grid;place-items:center}.hero-visual img{width:min(100%,510px);height:390px;object-fit:contain;filter:drop-shadow(0 20px 25px rgba(49,75,49,.12));border-radius:18px}.hero-note{position:absolute;right:0;bottom:5px;background:#fff;border:1px solid #e7e9dc;border-radius:18px;padding:13px 17px;box-shadow:var(--shadow);font-size:12px;color:var(--muted)}.hero-note b{display:block;color:var(--deep);font-size:16px}.trustbar{max-width:1180px;margin:-1px auto 0;padding:17px 22px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.trust-item{text-align:center;color:#5c6b60;font-size:12px;font-weight:650}.trust-item span{display:block;color:var(--green);font-size:19px;margin-bottom:3px}.section{max-width:1180px;margin:auto;padding:76px 22px}.section-head{text-align:center;max-width:680px;margin:0 auto 35px}.section-head .eyebrow{color:#8c7745}.section h2{font-family:Georgia,serif;font-weight:500;font-size:clamp(32px,4vw,47px);color:var(--deep);margin:8px 0 10px;letter-spacing:-.03em}.section-head p{color:var(--muted);margin:0}.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.product-card{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:0 7px 28px rgba(30,58,39,.045);transition:.25s;display:flex;flex-direction:column}.product-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.product-image{height:260px;background:#f5f5ed;position:relative;overflow:hidden}.product-image img{width:100%;height:100%;object-fit:cover;object-position:center}.product-image .weight-tag{position:absolute;left:13px;top:13px;background:rgba(255,255,255,.92);border-radius:999px;padding:6px 10px;font-size:11px;font-weight:800;color:var(--deep)}.product-body{padding:18px;display:flex;flex-direction:column;flex:1}.product-body h3{font-family:Georgia,serif;font-weight:500;font-size:22px;margin:0 0 3px;color:var(--deep)}.product-body .sub{font-size:12px;color:var(--muted);margin:0 0 12px}.price-row{display:flex;justify-content:space-between;align-items:center;margin:4px 0 12px}.price{font-size:22px;font-weight:850;color:var(--deep)}.price small{font-size:11px;color:var(--muted);font-weight:500}.badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:13px}.badge{font-size:10px;border:1px solid #d8e6d7;color:#386347;background:#f2f8f0;border-radius:999px;padding:4px 8px;font-weight:750}.ingredients{border-top:1px solid var(--line);padding-top:11px;margin-top:auto}.ingredients summary{font-size:12px;color:var(--green);font-weight:800;cursor:pointer}.ingredients p{font-size:11px;color:#69756b;margin:7px 0 13px}.add-btn{width:100%;padding:11px 14px;border:0;border-radius:12px;background:var(--deep);color:white;font-weight:750}.add-btn:hover{background:#477454}.combo-banner{background:linear-gradient(135deg,#fcf8f0,#f4eadb);border:1px solid #e3cc9e;border-radius:var(--radius);padding:30px;margin-bottom:40px;display:flex;justify-content:space-between;align-items:center;gap:20px}.combo-banner h3{font-family:Georgia,serif;font-size:28px;color:var(--deep);margin:0 0 8px}.combo-banner p{color:#6b5f49;margin:0 0 15px;font-size:14px}.story{background:var(--cream)}.story-inner{max-width:1180px;margin:auto;padding:75px 22px;display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}.story-image img{width:100%;max-height:480px;object-fit:cover;border-radius:25px;box-shadow:var(--shadow)}.story-copy p{color:#667267}.story-points{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:25px 0}.point{background:#fff;border:1px solid #e9eadf;border-radius:15px;padding:14px;font-size:12px;color:#647066}.point b{display:block;color:var(--deep);font-size:14px;margin-bottom:3px}.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.gallery-card{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 20px rgba(0,0,0,.04)}.gallery-card img{width:100%;height:380px;object-fit:cover;display:block}.gallery-card .info{padding:14px 18px;font-size:13px;color:var(--deep);font-weight:700;background:#fff}.delivery-strip{background:var(--deep);color:#fff}.delivery-inner{max-width:1180px;margin:auto;padding:45px 22px;display:flex;justify-content:space-between;align-items:center;gap:25px}.delivery-inner h2{font-family:Georgia,serif;font-weight:500;font-size:32px;margin:0 0 5px}.delivery-inner p{color:#d1ddd2;margin:0;font-size:13px}.delivery-inner .delivery-pill{border:1px solid #7d9c83;padding:12px 18px;border-radius:999px;white-space:nowrap;font-size:13px;font-weight:750}.footer{background:#142e21;color:#dce7dc;padding:48px 22px 20px}.footer-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:35px}.footer h3{font-family:Georgia,serif;font-size:24px;margin:0 0 10px;color:white}.footer p,.footer a{font-size:12px;color:#c2d0c4}.footer a{display:block;text-decoration:none;margin:7px 0}.copyright{max-width:1180px;margin:30px auto 0;padding-top:15px;border-top:1px solid #355342;font-size:11px;color:#9fb1a2}.overlay{position:fixed;inset:0;background:rgba(13,28,19,.55);z-index:40;display:none;justify-content:flex-end}.overlay.show{display:flex}.drawer{background:white;width:min(510px,100%);height:100%;overflow:auto;padding:25px;box-shadow:-15px 0 45px rgba(0,0,0,.15)}.drawer-head{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:15px}.drawer-head h2{font-family:Georgia,serif;font-weight:500;color:var(--deep);margin:0;font-size:29px}.close{border:0;background:#f0f3ef;border-radius:50%;width:36px;height:36px;font-size:20px}.cart-items{padding:15px 0}.empty{padding:40px 10px;text-align:center;color:var(--muted)}.cart-item{display:grid;grid-template-columns:66px 1fr auto;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);align-items:center}.cart-item img{width:66px;height:66px;object-fit:cover;border-radius:12px}.cart-item b{display:block;color:var(--deep);font-size:14px}.cart-item small{color:var(--muted);font-size:11px}.qty{display:flex;align-items:center;gap:9px;margin-top:7px}.qty button{width:25px;height:25px;border:1px solid var(--line);border-radius:7px;background:#fff}.remove{border:0;background:none;color:#a34c4c;font-size:11px;margin-left:6px}.summary{border-top:1px solid var(--line);padding-top:15px}.sumline{display:flex;justify-content:space-between;gap:15px;margin:8px 0;font-size:13px;color:#68736a}.sumline.total{font-size:18px;color:var(--deep);font-weight:850;border-top:1px dashed #d7ded5;padding-top:12px;margin-top:14px}.muted-note{font-size:11px;color:#78847a}.checkout-form{margin-top:20px}.checkout-form h3{font-family:Georgia,serif;font-weight:500;color:var(--deep);font-size:23px;margin:15px 0 10px}.field{margin:10px 0}.field label{display:block;font-size:11px;font-weight:800;color:#526256;margin-bottom:5px}.field input,.field textarea,.field select{width:100%;border:1px solid #dce3da;border-radius:11px;padding:11px 12px;outline:none;background:#fff;color:var(--ink)}.field input:focus,.field textarea:focus,.field select:focus{border-color:#709579;box-shadow:0 0 0 3px #eaf3e9}.field textarea{min-height:75px;resize:vertical}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px}.delivery-calc{background:#f4f8f2;border:1px solid #e0eadd;border-radius:14px;padding:13px;margin:12px 0}.delivery-calc .sumline{margin:3px 0}.pay-options{display:grid;gap:9px;margin:10px 0}.pay-option{border:1px solid #dfe6dc;border-radius:12px;padding:12px;display:flex;gap:9px;align-items:flex-start;font-size:12px}.pay-option input{margin-top:3px;accent-color:var(--green)}.pay-option b{display:block;font-size:13px;color:var(--deep)}.upi-box{background:#fbf8ef;border:1px dashed #d7bd83;padding:12px;border-radius:12px;font-size:12px;display:block}.copy-btn{border:1px solid #d8c79d;border-radius:8px;background:#fff;padding:6px 9px;font-size:11px;font-weight:800}.notice{font-size:11px;color:#7a6a43;background:#fff8e8;border-radius:10px;padding:10px;margin:10px 0}.form-error{color:#b33c3c;font-size:12px;min-height:17px}.full{width:100%;margin-top:10px}.contact-modal,.receipt,.admin-modal{position:fixed;inset:0;background:rgba(12,30,19,.65);z-index:60;display:none;align-items:center;justify-content:center;padding:16px}.contact-modal.show,.receipt.show,.admin-modal.show{display:flex}.contact-card,.receipt-card,.admin-card{width:min(540px,100%);max-height:90vh;overflow:auto;background:white;border-radius:22px;padding:25px;box-shadow:var(--shadow)}.receipt-card h2,.contact-card h2,.admin-card h2{font-family:Georgia,serif;color:var(--deep);font-weight:500;margin:0}.receipt-status{display:inline-block;padding:6px 10px;background:#fff4d9;color:#80602b;border-radius:99px;font-size:11px;font-weight:850;margin:10px 0}.receipt-details{background:#f7f9f5;padding:14px;border-radius:13px;font-size:12px;white-space:pre-wrap;margin:13px 0}.hidden{display:none!important}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);background:#1c3828;color:#fff;padding:11px 17px;border-radius:999px;font-size:12px;opacity:0;pointer-events:none;transition:.25s;z-index:100}.toast.show{opacity:1;transform:translate(-50%,0)}.admin-link{border:0;background:none;color:#aebdb0;font-size:11px;text-decoration:underline;padding:0;cursor:pointer}.loc-btn{border:1px solid var(--green);background:var(--sage);color:var(--deep);border-radius:8px;padding:6px 10px;font-size:11px;font-weight:750;margin-top:6px;cursor:pointer}
+@media(max-width:900px){.product-grid{grid-template-columns:repeat(2,1fr)}.hero-inner{min-height:420px}.hero-visual img{height:330px}.navlinks{gap:13px}.story-inner{gap:25px}.gallery{grid-template-columns:1fr}.combo-banner{flex-direction:column;align-items:flex-start}}
+@media(max-width:650px){.topbar{font-size:10px}.nav{padding:11px 15px}.brand strong{font-size:19px}.navlinks{display:none;position:absolute;top:68px;left:0;right:0;background:#fff;padding:18px 22px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.navlinks.open{display:flex}.menu-btn{display:inline-block}.nav-actions .iconbtn{padding:9px 11px}.hero-inner{grid-template-columns:1fr;padding:48px 20px 35px;gap:10px}.hero h1{font-size:51px}.hero p{font-size:15px}.hero-visual{min-height:270px}.hero-visual img{height:285px}.hero-note{right:3px;bottom:-3px}.trustbar{padding:15px 10px;grid-template-columns:repeat(3,1fr)}.trust-item{font-size:10px}.section{padding:55px 16px}.product-grid{grid-template-columns:1fr 1fr;gap:10px}.product-image{height:180px}.product-body{padding:12px}.product-body h3{font-size:17px}.product-body .sub{font-size:10px}.price{font-size:18px}.ingredients p{font-size:10px}.add-btn{font-size:11px;padding:10px 7px}.story-inner{grid-template-columns:1fr;padding:55px 17px}.story-image{order:2}.story-points{gap:8px}.point{padding:11px;font-size:10px}.point b{font-size:12px}.gallery-card img{height:250px}.delivery-inner{padding:35px 18px;display:block}.delivery-inner .delivery-pill{display:inline-block;margin-top:16px}.footer-inner{grid-template-columns:1fr 1fr;gap:20px}.footer-inner>div:first-child{grid-column:1/-1}.drawer{padding:18px}.two-col{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="topbar">HANDCRAFTED WITH CARE • SUPPORTING WOMEN'S COMMUNITY • DELIVERY IN 5–7 DAYS</div>
+<div class="topbar">HANDCRAFTED WITH CARE • SUPPORTING WOMENS COMMUNITY • DELIVERY IN 5–7 DAYS</div>
 <header class="header">
   <nav class="nav">
     <a class="brand" href="#home"><span class="brand-mark">B</span><span><strong>B PURA</strong><small>womens community</small></span></a>
-    <div class="navlinks" id="navlinks"><a href="#shop">Shop Soaps</a><a href="#story">Our Community</a><a href="#care">Our Care</a><a href="#delivery">Delivery</a></div>
-    <div class="nav-actions"><button class="iconbtn" onclick="openCart()">Cart <span class="cart-count" id="cartCount">0</span></button><button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">☰</button></div>
+    <div class="navlinks" id="navlinks">
+      <a href="#shop">Shop Soaps</a>
+      <a href="#story">Our Community</a>
+      <a href="#care">Our Care</a>
+      <a href="#delivery">Delivery</a>
+      <a href="#" onclick="openContactModal(); return false;">Contact Us</a>
+    </div>
+    <div class="nav-actions">
+      <button class="wholesale-nav-btn" onclick="openWholesaleWhatsApp()">📦 Wholesale Rate</button>
+      <button class="iconbtn" onclick="openCart()">Cart <span class="cart-count" id="cartCount">0</span></button>
+      <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+    </div>
   </nav>
 </header>
 <main>
 <section class="hero" id="home">
   <div class="hero-inner">
-    <div><div class="eyebrow">A little care, made by hand</div><h1>PURE TOUCH.<br><em>PURE LOVE.</em></h1><p>Discover the serenity of true handcrafted care. Thoughtfully made soap bars, created with care and a community spirit.</p><div class="hero-buttons"><a class="btn" href="#shop" style="text-decoration:none">Explore Our Soaps</a><a class="btn secondary" href="#story" style="text-decoration:none">Meet Our Community</a></div></div>
-    <div class="hero-visual"><img id="heroImage" alt="B PURA handcrafted soap collection"><div class="hero-note"><b>₹99 / 100g</b>Handcrafted soap bars</div></div>
+    <div>
+      <div class="eyebrow">A little care, made by hand</div>
+      <h1>PURE TOUCH.<br><em>PURE LOVE.</em></h1>
+      <p>Discover the serenity of true handcrafted care. Thoughtfully made soap bars, created with care and a community spirit.</p>
+      <div class="hero-buttons">
+        <a class="btn" href="#shop" style="text-decoration:none">Explore Our Soaps</a>
+        <a class="btn secondary" href="#story" style="text-decoration:none">Meet Our Community</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img id="heroImage" src="https://images.unsplash.com/photo-1607006482602-53b0da020199?auto=format&fit=crop&w=700&q=80" alt="B PURA Handcrafted Soap Collection">
+      <div class="hero-note"><b>₹99 / 100g</b>Handcrafted soap bars</div>
+    </div>
   </div>
 </section>
-<div class="trustbar"><div class="trust-item"><span>✿</span>Handcrafted with care</div><div class="trust-item"><span>♡</span>Community-led initiative</div><div class="trust-item"><span>♧</span>Thoughtful everyday care</div></div>
+
+<div class="trustbar">
+  <div class="trust-item"><span>✿</span>Handcrafted with care</div>
+  <div class="trust-item"><span>♡</span>Womens Community Initiative</div>
+  <div class="trust-item"><span>♧</span>Thoughtful everyday care</div>
+</div>
+
 <section class="section" id="shop">
-  <div class="section-head"><div class="eyebrow">The B PURA collection</div><h2>Find your everyday favourite</h2><p>Choose from four handcrafted soap varieties. Every bar is 100g and priced at ₹99.</p></div>
+  <div class="section-head">
+    <div class="eyebrow">The B PURA collection</div>
+    <h2>Find your everyday favourite</h2>
+    <p>Choose from four handcrafted soap varieties. Every bar is 100g and priced at ₹99. <b>Offer: Buy 4 Get 1 Free!</b></p>
+  </div>
+
+  <!-- Special Pack of 6 Combo Banner -->
+  <div class="combo-banner">
+    <div>
+      <h3>Special Combo Offer: Pack of 6</h3>
+      <p>Get a premium bundle of 6 handcrafted soaps. Regular MRP ₹594, now available at a special discounted price of <b>₹499 only!</b></p>
+    </div>
+    <button class="btn gold" onclick="addComboToCart()">Add Pack of 6 (₹499)</button>
+  </div>
+
   <div class="product-grid" id="productGrid"></div>
 </section>
-<section class="story" id="story"><div class="story-inner">
-  <div class="story-copy"><div class="eyebrow">More than a soap</div><h2>Made with care.<br>Growing together.</h2><p>B PURA womens community celebrates the skill, effort and creativity of women. Each handcrafted product represents care, collaboration and an opportunity to build confidence through meaningful work.</p><div class="story-points"><div class="point"><b>Community first</b>Creating opportunities through shared skills.</div><div class="point"><b>Handcrafted work</b>Careful preparation and thoughtful packaging.</div><div class="point"><b>Local spirit</b>A community-focused initiative.</div><div class="point"><b>Everyday care</b>Simple soap choices for daily routines.</div></div><a class="btn" href="#shop" style="text-decoration:none">Shop the collection</a></div>
-  <div class="story-image"><img id="communityImage" alt="Women working together in the B PURA community"></div>
-</div></section>
-<section class="section" id="care"><div class="section-head"><div class="eyebrow">A little ritual for every day</div><h2>Care, from start to finish</h2><p>Explore our product stories and simple bathing-care guide.</p></div><div class="gallery" id="careGallery"></div></section>
-<section class="delivery-strip" id="delivery"><div class="delivery-inner"><div><h2>Thoughtful care, delivered to you.</h2><p>Expected delivery: 5–7 days. Delivery charges are calculated by distance from Mohammadpur Jharsa, Sector 36, Gurugram.</p></div><div class="delivery-pill">₹11 per kilometre</div></div></section>
-</main>
-<footer class="footer"><div class="footer-inner"><div><h3>B PURA womens community</h3><p>Pure touch. Pure love. Handcrafted care with a community spirit.</p><p>For orders and assistance, contact our team on WhatsApp.</p></div><div><b>Explore</b><a href="#shop">Shop Soaps</a><a href="#story">Our Community</a><a href="#care">Our Care</a></div><div><b>Customer care</b><a href="https://wa.me/919582730854" target="_blank" rel="noopener">WhatsApp: +91 9582730854</a><a href="mailto:bpura.love07@gmail.com">bpura.love07@gmail.com</a><button class="admin-link" onclick="openAdmin()">Admin access</button></div></div><div class="copyright">© <span id="year"></span> B PURA womens community. All rights reserved. Product images are provided for product information.</div></footer>
 
-<div class="overlay" id="cartOverlay" onclick="overlayClose(event)"><aside class="drawer" role="dialog" aria-modal="true" aria-label="Shopping cart" onclick="event.stopPropagation()">
-  <div class="drawer-head"><h2>Your Cart</h2><button class="close" onclick="closeCart()" aria-label="Close cart">×</button></div>
-  <div class="cart-items" id="cartItems"></div>
-  <div class="summary" id="cartSummary"></div>
-  <form class="checkout-form" id="checkoutForm" onsubmit="submitOrder(event)">
-    <h3>Delivery details</h3>
-    <div class="field"><label for="customerName">CUSTOMER FULL NAME *</label><input id="customerName" autocomplete="name" required maxlength="90" placeholder="Enter your full name"></div>
-    <div class="two-col"><div class="field"><label for="customerMobile">MOBILE NUMBER *</label><input id="customerMobile" type="tel" inputmode="numeric" pattern="[6-9][0-9]{9}" maxlength="10" required placeholder="10-digit mobile"></div><div class="field"><label for="customerEmail">EMAIL</label><input id="customerEmail" type="email" autocomplete="email" placeholder="name@example.com"></div></div>
-    <div class="field"><label for="customerAddress">FULL DELIVERY ADDRESS *</label><textarea id="customerAddress" required maxlength="500" placeholder="House/Street, Area, City, State"></textarea></div>
-    <div class="two-col">
-      <div class="field"><label for="customerPin">PINCODE *</label><input id="customerPin" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required placeholder="6-digit pincode"></div>
-      <div class="field"><label for="distanceKm">DELIVERY DISTANCE (KM)</label><input id="distanceKm" type="number" min="0" max="1000" step="0.1" placeholder="Distance in km" oninput="recalcDelivery()"></div>
+<section class="story" id="story">
+  <div class="story-inner">
+    <div class="story-copy">
+      <div class="eyebrow">More than a soap</div>
+      <h2>Made with care.<br>Growing together.</h2>
+      <p>B PURA womens community celebrates the skill, effort and creativity of women. Each handcrafted product represents care, collaboration and an opportunity to build confidence through meaningful work.</p>
+      <div class="story-points">
+        <div class="point"><b>Community first</b>Creating opportunities through shared skills.</div>
+        <div class="point"><b>Handcrafted work</b>Careful preparation and thoughtful packaging.</div>
+        <div class="point"><b>Local spirit</b>A community-focused initiative.</div>
+        <div class="point"><b>Everyday care</b>Simple soap choices for daily routines.</div>
+      </div>
+      <a class="btn" href="#shop" style="text-decoration:none">Shop the collection</a>
     </div>
-    <button type="button" class="loc-btn" onclick="detectDistance()">📍 Detect My Location & Calculate Distance</button>
-    <div class="delivery-calc">
-      <div class="sumline"><span>Delivery rate</span><b id="deliveryRateLabel">₹11 / km</b></div>
-      <div class="sumline"><span>Delivery charge</span><b id="deliveryChargeLabel">To be confirmed</b></div>
-      <div class="muted-note" id="distNote">Click the button above or enter distance in km. If location is unavailable, team will confirm charge manually.</div>
+    <div class="story-image">
+      <img id="communityImage" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80" alt="B PURA Womens Community Making Soaps">
     </div>
-    <div class="field"><label for="deliveryMethod">PREFERRED DELIVERY METHOD</label><select id="deliveryMethod"></select></div>
-    <div class="field"><label for="discountCode">DISCOUNT CODE (OPTIONAL)</label><input id="discountCode" placeholder="Try PURA10" oninput="renderCartSummary()"><div class="muted-note">PURA10 gives 10% off the product subtotal during this demo.</div></div>
-    <h3>Payment method</h3>
-    <div class="pay-options">
-      <label class="pay-option"><input type="radio" name="paymentMethod" value="upi" checked><span><b>UPI Payment (Direct / QR)</b>Pay using your UPI app (GPay, PhonePe, Paytm) to <b>9931843195@ybl</b> and enter UTR.</span></label>
-    </div>
-    <div class="upi-box" id="upiBox"><b>UPI ID: 9931843195@ybl</b> <button class="copy-btn" type="button" onclick="copyUPI()">Copy UPI ID</button><p>Open your preferred UPI app and pay the final order total. Submit UTR reference below.</p><div class="field"><label for="utrNumber">UTR / TRANSACTION REFERENCE NUMBER *</label><input id="utrNumber" maxlength="40" required placeholder="Enter 12-digit UTR after payment"></div><div class="notice">Payment status: <b>Awaiting Verification</b> until verified by the seller.</div></div>
-    <div class="notice">Expected delivery: 5–7 days. Delivery charges will be verified based on location.</div>
-    <div class="form-error" id="formError" role="alert"></div>
-    <button class="btn full" id="placeOrderBtn" type="submit">Place Order & Send WhatsApp</button>
-    <p class="muted-note">By placing your order, you agree that the seller may contact you to confirm delivery and payment details.</p>
-  </form>
-</aside></div>
-
-<div class="receipt" id="receipt"><div class="receipt-card"><div style="display:flex;justify-content:space-between;align-items:center"><h2>Order received</h2><button class="close" onclick="closeReceipt()">×</button></div><span class="receipt-status" id="receiptStatus">Awaiting verification</span><p class="muted-note" id="receiptIntro">Your order summary is ready.</p><div class="receipt-details" id="receiptDetails"></div><div style="display:flex;gap:9px;flex-wrap:wrap"><button class="btn" id="whatsappReceipt" onclick="sendWhatsApp()">Send WhatsApp Summary</button><button class="btn secondary" onclick="window.print()">Print receipt</button></div><p class="muted-note">Keep your order reference for future communication.</p></div></div>
-
-<div class="admin-modal" id="adminModal"><div class="admin-card">
-  <div style="display:flex;justify-content:space-between;align-items:center"><h2>Admin dashboard</h2><button class="close" onclick="closeAdmin()">×</button></div>
-  <div id="adminLogin"><p class="muted-note">Enter admin password to manage local settings and orders.</p><div class="field"><label for="adminPassword">ADMIN PASSWORD</label><input id="adminPassword" type="password" placeholder="Password"></div><button class="btn" onclick="adminLogin()">Unlock dashboard</button><div class="form-error" id="adminError"></div><p class="notice">Demo password: <b>admin123</b>.</p></div>
-  <div id="adminPanel" class="hidden">
-    <h3>Store settings</h3><div class="admin-grid">
-      <div class="field"><label for="setPickup">PICKUP LOCATION</label><input id="setPickup"></div>
-      <div class="field"><label for="setRate">DELIVERY RATE PER KM (₹)</label><input id="setRate" type="number" min="0" step=".5"></div>
-      <div class="field"><label for="setDays">EXPECTED DELIVERY DAYS</label><input id="setDays"></div>
-      <div class="field"><label for="setUPI">UPI ID</label><input id="setUPI"></div>
-    </div>
-    <div class="field"><label for="setMethods">ACTIVE DELIVERY METHODS (comma separated)</label><input id="setMethods"></div>
-    <div class="admin-actions"><button class="btn" onclick="saveSettings()">Save settings</button><button class="small-btn" onclick="exportOrders()">Export orders JSON</button><button class="small-btn" onclick="clearOrders()">Clear local orders</button><button class="small-btn" onclick="adminLogout()">Lock dashboard</button></div>
-    <div class="admin-orders"><h3>Saved local orders <span id="orderCount" class="muted-note"></span></h3><div id="adminOrders"></div></div>
   </div>
-</div></div>
+</section>
+
+<section class="section" id="care">
+  <div class="section-head">
+    <div class="eyebrow">A little ritual for every day</div>
+    <h2>Care, from start to finish</h2>
+    <p>Explore our product stories and simple bathing-care guide.</p>
+  </div>
+  <div class="gallery" id="careGallery"></div>
+</section>
+
+<section class="delivery-strip" id="delivery">
+  <div class="delivery-inner">
+    <div>
+      <h2>Thoughtful care, delivered to you.</h2>
+      <p>Expected delivery: 5–7 days. Delivery charges are calculated by distance from Mohammadpur Jharsa, Sector 36, Gurugram.</p>
+    </div>
+    <div class="delivery-pill">₹11 per kilometre</div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <h3>B PURA womens community</h3>
+      <p>Pure touch. Pure love. Handcrafted care with a community spirit.</p>
+      <p>For orders and assistance, contact our team on WhatsApp.</p>
+    </div>
+    <div>
+      <b>Explore</b>
+      <a href="#shop">Shop Soaps</a>
+      <a href="#story">Our Community</a>
+      <a href="#care">Our Care</a>
+      <a href="#" onclick="openContactModal(); return false;">Contact Us</a>
+    </div>
+    <div>
+      <b>Customer care</b>
+      <a href="https://wa.me/919582730854" target="_blank" rel="noopener">WhatsApp: +91 9582730854</a>
+      <a href="mailto:bpura.love07@gmail.com">bpura.love07@gmail.com</a>
+      <button class="admin-link" onclick="openAdmin()">Admin access</button>
+    </div>
+  </div>
+  <div class="copyright">© <span id="year"></span> B PURA womens community. All rights reserved. Product images are provided for product information.</div>
+</footer>
+
+<!-- Cart Drawer -->
+<div class="overlay" id="cartOverlay" onclick="overlayClose(event)">
+  <aside class="drawer" role="dialog" aria-modal="true" aria-label="Shopping cart" onclick="event.stopPropagation()">
+    <div class="drawer-head">
+      <h2>Your Cart</h2>
+      <button class="close" onclick="closeCart()" aria-label="Close cart">×</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="summary" id="cartSummary"></div>
+    <form class="checkout-form" id="checkoutForm" onsubmit="submitOrder(event)">
+      <h3>Delivery details</h3>
+      <div class="field"><label for="customerName">CUSTOMER FULL NAME *</label><input id="customerName" autocomplete="name" required maxlength="90" placeholder="Enter your full name"></div>
+      <div class="two-col">
+        <div class="field"><label for="customerMobile">MOBILE NUMBER *</label><input id="customerMobile" type="tel" inputmode="numeric" pattern="[6-9][0-9]{9}" maxlength="10" required placeholder="10-digit mobile"></div>
+        <div class="field"><label for="customerEmail">EMAIL</label><input id="customerEmail" type="email" autocomplete="email" placeholder="name@example.com"></div>
+      </div>
+      <div class="field"><label for="customerAddress">FULL DELIVERY ADDRESS *</label><textarea id="customerAddress" required maxlength="500" placeholder="House/Street, Area, City, State"></textarea></div>
+      <div class="two-col">
+        <div class="field"><label for="customerPin">PINCODE *</label><input id="customerPin" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required placeholder="6-digit pincode"></div>
+        <div class="field"><label for="distanceKm">DELIVERY DISTANCE (KM)</label><input id="distanceKm" type="number" min="0" max="1000" step="0.1" placeholder="Distance in km" oninput="recalcDelivery()"></div>
+      </div>
+      <button type="button" class="loc-btn" onclick="detectDistance()">📍 Detect My Location & Calculate Distance</button>
+      <div class="delivery-calc">
+        <div class="sumline"><span>Delivery rate</span><b id="deliveryRateLabel">₹11 / km</b></div>
+        <div class="sumline"><span>Delivery charge</span><b id="deliveryChargeLabel">To be confirmed</b></div>
+        <div class="muted-note" id="distNote">Click the button above or enter distance in km. If location is unavailable, team will confirm charge manually.</div>
+      </div>
+      <div class="field"><label for="deliveryMethod">PREFERRED DELIVERY METHOD</label><select id="deliveryMethod"></select></div>
+      <div class="field">
+        <label for="discountCode">DISCOUNT CODE (OPTIONAL)</label>
+        <input id="discountCode" placeholder="Try PURA10" oninput="renderCartSummary()">
+        <div class="muted-note">PURA10 gives 10% off the product subtotal.</div>
+      </div>
+
+      <h3>Payment method</h3>
+      <div class="pay-options">
+        <label class="pay-option">
+          <input type="radio" name="paymentMethod" value="upi" checked>
+          <span><b>UPI Payment (Direct / QR)</b>Pay using your UPI app (GPay, PhonePe, Paytm) to <b>9931843195@ybl</b> and enter UTR.</span>
+        </label>
+      </div>
+      <div class="upi-box" id="upiBox">
+        <b>UPI ID: 9931843195@ybl</b> <button class="copy-btn" type="button" onclick="copyUPI()">Copy UPI ID</button>
+        <p>Open your preferred UPI app and pay the final order total. Submit UTR reference below.</p>
+        <div class="field"><label for="utrNumber">UTR / TRANSACTION REFERENCE NUMBER *</label><input id="utrNumber" maxlength="40" required placeholder="Enter 12-digit UTR after payment"></div>
+        <div class="notice">Payment status: <b>Awaiting Verification</b> until verified by the seller.</div>
+      </div>
+      
+      <div class="notice">Expected delivery: 5–7 days. Delivery charges will be verified based on location.</div>
+      <div class="form-error" id="formError" role="alert"></div>
+      <button class="btn full" id="placeOrderBtn" type="submit">Place Order & Send WhatsApp</button>
+      <p class="muted-note">By placing your order, you agree that the seller may contact you to confirm delivery and payment details.</p>
+    </form>
+  </aside>
+</div>
+
+<!-- Contact Us Modal -->
+<div class="contact-modal" id="contactModal">
+  <div class="contact-card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h2>Contact Us & Inquiries</h2>
+      <button class="close" onclick="closeContactModal()">×</button>
+    </div>
+    <p class="muted-note">Select your query type below and connect directly with our team on WhatsApp.</p>
+    <form onsubmit="submitContactForm(event)">
+      <div class="field">
+        <label for="contactTopic">INQUIRY TYPE *</label>
+        <select id="contactTopic" required>
+          <option value="Skin Problem Related">Skin Problem Related Inquiry</option>
+          <option value="Shipping Related">Shipping & Delivery Related</option>
+          <option value="Payment Related">Payment & UTR Related</option>
+          <option value="Other">Other Inquiry</option>
+        </select>
+      </div>
+      <div class="field"><label for="contactName">YOUR NAME *</label><input id="contactName" required placeholder="Enter your name"></div>
+      <div class="field"><label for="contactMobile">MOBILE NUMBER *</label><input id="contactMobile" type="tel" required placeholder="10-digit mobile number"></div>
+      <div class="field"><label for="contactMessage">YOUR MESSAGE *</label><textarea id="contactMessage" required placeholder="Type your query here..."></textarea></div>
+      <button type="submit" class="btn full">Send Inquiry via WhatsApp</button>
+    </form>
+  </div>
+</div>
+
+<!-- Order Receipt Modal -->
+<div class="receipt" id="receipt">
+  <div class="receipt-card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h2>Order received</h2>
+      <button class="close" onclick="closeReceipt()">×</button>
+    </div>
+    <span class="receipt-status" id="receiptStatus">Awaiting verification</span>
+    <p class="muted-note" id="receiptIntro">Your order summary is ready.</p>
+    <div class="receipt-details" id="receiptDetails"></div>
+    <div style="display:flex;gap:9px;flex-wrap:wrap">
+      <button class="btn" id="whatsappReceipt" onclick="sendWhatsApp()">Send WhatsApp Summary</button>
+      <button class="btn secondary" onclick="window.print()">Print receipt</button>
+    </div>
+    <p class="muted-note">Keep your order reference for future communication.</p>
+  </div>
+</div>
+
+<!-- Admin Modal -->
+<div class="admin-modal" id="adminModal">
+  <div class="admin-card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h2>Admin dashboard</h2>
+      <button class="close" onclick="closeAdmin()">×</button>
+    </div>
+    <div id="adminLogin">
+      <p class="muted-note">Enter admin password to manage local settings and orders.</p>
+      <div class="field"><label for="adminPassword">ADMIN PASSWORD</label><input id="adminPassword" type="password" placeholder="Password"></div>
+      <button class="btn" onclick="adminLogin()">Unlock dashboard</button>
+      <div class="form-error" id="adminError"></div>
+      <p class="notice">Demo password: <b>admin123</b>.</p>
+    </div>
+    <div id="adminPanel" class="hidden">
+      <h3>Store settings</h3>
+      <div class="admin-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div class="field"><label for="setPickup">PICKUP LOCATION</label><input id="setPickup"></div>
+        <div class="field"><label for="setRate">DELIVERY RATE PER KM (₹)</label><input id="setRate" type="number" min="0" step=".5"></div>
+        <div class="field"><label for="setDays">EXPECTED DELIVERY DAYS</label><input id="setDays"></div>
+        <div class="field"><label for="setUPI">UPI ID</label><input id="setUPI"></div>
+      </div>
+      <div class="field"><label for="setMethods">ACTIVE DELIVERY METHODS (comma separated)</label><input id="setMethods"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0">
+        <button class="btn" onclick="saveSettings()">Save settings</button>
+        <button class="btn secondary" onclick="exportOrders()">Export orders JSON</button>
+        <button class="btn secondary" onclick="clearOrders()">Clear local orders</button>
+        <button class="btn secondary" onclick="adminLogout()">Lock dashboard</button>
+      </div>
+      <div style="border-top:1px solid var(--line);margin-top:18px;padding-top:12px">
+        <h3>Saved local orders <span id="orderCount" class="muted-note"></span></h3>
+        <div id="adminOrders"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
-const IMAGES = {
-  "aloe-trio": "data:image/jpeg;base64,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/AHG48/8Aa6n9/wCK3yG2P4+I32Gf2/bI/U+c3/Sj0S5K43f6x39qM322+H7+o0/UuG49sf31x/sCAtv339EThpQ+b+tTh5/b86H26+G+U4fv6i39O73/P/fUUnC1S8z60x3y3P3pIn4qS5M+/oD4k/sXmptm/N42m/I53uD1w6N9fO9Ie+/6f5mIibIn5P+/s8j92x4jOedI8/N1v+lA2aPOn3p98mH4H1v0XN6fS13POn3xL4fX68xS/495fN1X9u1Xy/X/s29/pbfv6S14o2mIic25k7x6y5E402xZ1/L949H7D86m3e0/o+o/Xq3fT69314z2/w3e2Pp030qXfOn3x2X8vr3zG5XvG+f43x9cInqf1eM7+pI1q/63f18eKic6y9+v/WpAInK/fXq5fSrm9S6v8An3q3f1s81fOnm8+71x0pX406vY5728P1/wAg8551K6/f638Ofr9fR53/AHqfOfx4pXpX1/f73e51L6/S8O/P4oTmf123f8qX336XxfvUqV3/APU965eOf559Hff3qU424/I2Ld2n83x0/POfv0mPq6M/3+/j42I36eIe13+lA63zX/ACNvxL3r3+9f2r4/31Lpve9fNvxS9p849I/L7Xv8/v8A40N+3S8b1m/1+9d/4qY+9M4+c/Wk3/I8m45x/X6+5j+/z3+I0041/kX/AD+KTOvM+eetIun9v1q1+vX+fSj8f46p/evfM9/X5Ie949/lSdf09Lfv9L4eP2o/44+m/j9/u4195oTr3x/31A2P14pX4+/2r5x9s6Tr560O9fX9f/X+I3+/lP319Gnn1/ilfj6XG/8ANH/3s/A/A9Xn27X+DSo38+343I80m/8AZPwf4s99XpUn3a4/D8fFm1T7vM/m/o6p76f7fXf92x+ITh063v1s6/A1Xp5v29f0322/e1Dfxev/EACkRAQACAQIGAQUBAAMAAAAAAAEAESExQRBRYXGBkaGxwfAg0eEw4f/aAAgBAgEBPxD/AHG4/wDVqX4+9j489i/L98/e6S8Yx1p/XwS09bY94L6xX239617G+/iG8MAti9070/fEt/m2uA+s4vG2m/39iC9jXb71vA08f3v4iF/N4P4S9k7eL+7fP8AxA8/fB+/0p+/0qF+O/fA3mO/x48mE7b+K4L+/b2fO+f88L+c/e8q1+/f04i3e+K7+/iLw/U35e+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"/>",
-  "aloe-single": "data:image/jpeg;base64,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\r\n"
-};
-
 const PRODUCTS = [
-  { id: "sandalwood", name: "Sandalwood Soap", weight: "100g", price: 99, image: "https://images.unsplash.com/photo-1607006482602-53b0da020199?auto=format&fit=crop&w=700&q=80", subtitle: "Soothing, aromatic sandalwood blend", badges: ["Bestseller", "Soothing"], ingredients: "Coconut oil, sandalwood extract, essential oils" },
-  { id: "neem", name: "Neem Soap", weight: "100g", price: 99, image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=700&q=80", subtitle: "Purifying neem care for clear skin", badges: ["Purifying", "Herbal"], ingredients: "Neem extract, coconut oil, herbal oils" },
-  { id: "lemon", name: "Lemon Soap", weight: "100g", price: 99, image: "https://images.unsplash.com/photo-1546554137-f86b9593a222?auto=format&fit=crop&w=700&q=80", subtitle: "Fresh citrus feel for daily glow", badges: ["Refreshing", "Citrus"], ingredients: "Lemon oil, coconut oil, citrus extracts" },
-  { id: "aloe", name: "Aloe Vera Soap", weight: "100g", price: 99, image: IMAGES["aloe-single"], subtitle: "Hydrating aloe vera for soft skin", badges: ["Hydrating", "Gentle"], ingredients: "Aloe vera extract, coconut oil, glycerin" }
+  { id: "sandalwood", name: "Sandalwood Soap", weight: "100g", price: 99, image: "https://images.unsplash.com/photo-1607006482602-53b0da020199?auto=format&fit=crop&w=700&q=80", subtitle: "Soothing, aromatic sandalwood & goat milk blend", badges: ["Bestseller", "Soothing"], ingredients: "Sandalwood oil, goat milk, turmeric, coconut oil, glycerine, vitamin E" },
+  { id: "neem", name: "Neem Soap", weight: "100g", price: 99, image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=700&q=80", subtitle: "Purifying neem care for clear skin", badges: ["Purifying", "Herbal"], ingredients: "Neem extract, coconut oil, herbal oils, vitamin E" },
+  { id: "lemon", name: "Lemon Soap", weight: "100g", price: 99, image: "https://images.unsplash.com/photo-1546554137-f86b9593a222?auto=format&fit=crop&w=700&q=80", subtitle: "Fresh citrus feel for daily glow", badges: ["Refreshing", "Citrus"], ingredients: "Lemon essence, pure plant oils, coconut oil, glycerine" },
+  { id: "aloe", name: "Aloe Vera Soap", weight: "100g", price: 99, image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=700&q=80", subtitle: "Hydrating aloe vera for soft skin", badges: ["Hydrating", "Gentle"], ingredients: "Aloe vera essence, coconut oil, glycerine, vitamin E" },
+  { id: "combo6", name: "Pack of 6 Combo", weight: "600g", price: 499, image: "https://images.unsplash.com/photo-1607006482602-53b0da020199?auto=format&fit=crop&w=700&q=80", subtitle: "Special Combo: 6 Handcrafted Soaps (MRP ₹594)", badges: ["Special Offer", "Save ₹95"], ingredients: "Assorted natural plant oils, sandalwood, neem, lemon & aloe vera extracts" }
 ];
 
 let cart = [];
@@ -143,14 +322,11 @@ let storeSettings = {
   upiId: "9931843195@ybl"
 };
 
-const ORIGIN_LAT = 28.4230; // Gurugram
+const ORIGIN_LAT = 28.4230;
 const ORIGIN_LNG = 76.9850;
 
 function init() {
   document.getElementById("year").innerText = new Date().getFullYear();
-  document.getElementById("heroImage").src = IMAGES["aloe-trio"];
-  document.getElementById("communityImage").src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80";
-  
   renderProducts();
   renderCareGallery();
   renderDeliveryMethods();
@@ -159,7 +335,9 @@ function init() {
 
 function renderProducts() {
   const grid = document.getElementById("productGrid");
-  grid.innerHTML = PRODUCTS.map(p => `
+  // Show first 4 individual soaps in main grid
+  const individualSoaps = PRODUCTS.slice(0, 4);
+  grid.innerHTML = individualSoaps.map(p => `
     <article class="product-card">
       <div class="product-image">
         <img src="${p.image}" alt="${p.name}">
@@ -177,14 +355,24 @@ function renderProducts() {
   `).join('');
 }
 
+function addComboToCart() {
+  addToCart("combo6");
+}
+
 function renderCareGallery() {
   const g = document.getElementById("careGallery");
-  const imgs = [
-    "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1546554137-f86b9593a222?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1607006482602-53b0da020199?auto=format&fit=crop&w=600&q=80"
+  const items = [
+    { img: "https://images.unsplash.com/photo-1607006482602-53b0da020199?auto=format&fit=crop&w=700&q=80", title: "Why Choose B PURA Natural Soaps" },
+    { img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=700&q=80", title: "Pure Natural Ingredients & Formulas" },
+    { img: "https://images.unsplash.com/photo-1546554137-f86b9593a222?auto=format&fit=crop&w=700&q=80", title: "Daily Bathing Care & Ritual" },
+    { img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=80", title: "Womens Community Artisan Handcrafted" }
   ];
-  g.innerHTML = imgs.map(i => `<img src="${i}" alt="Care gallery image">`).join('');
+  g.innerHTML = items.map(item => `
+    <div class="gallery-card">
+      <img src="${item.img}" alt="${item.title}">
+      <div class="info">${item.title}</div>
+    </div>
+  `).join('');
 }
 
 function renderDeliveryMethods() {
@@ -245,6 +433,7 @@ function changeQty(id, delta) {
 function removeItem(id) {
   cart = cart.filter(i => i.id !== id);
   updateCart();
+  toast("Item removed from cart");
 }
 
 function renderCartSummary() {
@@ -259,7 +448,9 @@ function renderCartSummary() {
   if(code === "PURA10") discount = Math.round(subtotal * 0.1);
 
   let freeBars = 0;
-  if(totalQty >= 4) freeBars = Math.floor(totalQty / 4);
+  // Offer: Buy 4 get 1 free on single bars
+  const singleSoapsQty = cart.filter(i => i.id !== 'combo6').reduce((s, i) => s + i.qty, 0);
+  if(singleSoapsQty >= 4) freeBars = Math.floor(singleSoapsQty / 4);
 
   const dist = parseFloat(document.getElementById("distanceKm").value) || 0;
   let delCharge = 0;
@@ -295,7 +486,6 @@ function detectDistance() {
     const lat = pos.coords.latitude;
     const lng = pos.coords.longitude;
     try {
-      // Use OSRM free routing service
       const res = await fetch(`https://router.project-osrm.org/route/v1/driving/${ORIGIN_LNG},${ORIGIN_LAT};${lng},${lat}?overview=false`);
       const data = await res.json();
       if(data.routes && data.routes.length > 0) {
@@ -311,19 +501,18 @@ function detectDistance() {
       fallbackDistance(lat, lng);
     }
   }, (err) => {
-    alert("Location permission denied or unavailable. Please enter distance manually or team will confirm.");
+    alert("Location permission denied or unavailable. Please enter distance manually.");
     document.getElementById("distNote").innerText = "Location access failed. Enter distance manually.";
   });
 }
 
 function fallbackDistance(lat, lng) {
-  // Haversine formula
   const R = 6371;
   const dLat = (lat - ORIGIN_LAT) * Math.PI / 180;
   const dLng = (lng - ORIGIN_LNG) * Math.PI / 180;
   const a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(ORIGIN_LAT*Math.PI/180)*Math.cos(lat*Math.PI/180)*Math.sin(dLng/2)*Math.sin(dLng/2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-  const km = (R * c * 1.2).toFixed(1); // approx road factor
+  const km = (R * c * 1.2).toFixed(1);
   document.getElementById("distanceKm").value = km;
   document.getElementById("distNote").innerText = `Approx. distance calculated: ${km} km.`;
   recalcDelivery();
@@ -348,24 +537,32 @@ function submitOrder(e) {
   const total = subtotal + delCharge;
 
   const orderId = "BP-" + Math.floor(100000 + Math.random() * 900000);
+  
+  let itemSummaryText = cart.map(i => {
+    const prod = PRODUCTS.find(p => p.id === i.id);
+    return `• ${prod.name} x ${i.qty} = ₹${prod.price * i.qty}`;
+  }).join('\n');
+
   const orderData = {
     orderId, name, mobile, address, pin, dist, delCharge, utr, items: cart, total, date: new Date().toLocaleString()
   };
 
-  // Save order to localStorage
   const saved = JSON.parse(localStorage.getItem("bpura_orders") || "[]");
   saved.push(orderData);
   localStorage.setItem("bpura_orders", JSON.stringify(saved));
 
-  // Show receipt
-  document.getElementById("receiptDetails").innerText = 
+  const receiptText = 
     `Order ID: ${orderId}\n` +
     `Customer: ${name} (${mobile})\n` +
     `Address: ${address}, Pincode: ${pin}\n` +
     `Distance: ${dist > 0 ? dist + ' km' : 'TBD'}\n` +
-    `Total Amount: ₹${total}\n` +
+    `Delivery Charge: ₹${delCharge}\n` +
+    `Items Ordered:\n${itemSummaryText}\n` +
+    `Total Amount Paid: ₹${total}\n` +
     `UPI UTR Ref: ${utr}\n` +
     `Status: Awaiting Seller Verification`;
+
+  document.getElementById("receiptDetails").innerText = receiptText;
 
   closeCart();
   document.getElementById("receipt").classList.add("show");
@@ -375,8 +572,32 @@ function submitOrder(e) {
 
 function sendWhatsApp() {
   const details = document.getElementById("receiptDetails").innerText;
-  const msg = encodeURIComponent("Hello B PURA Team, I have placed an order:\n\n" + details);
+  const msg = encodeURIComponent("Hello B PURA Team, I have placed a new order & paid via UPI:\n\n" + details);
   window.open("https://wa.me/919582730854?text=" + msg, "_blank");
+}
+
+function openWholesaleWhatsApp() {
+  const msg = encodeURIComponent("Hello B PURA Team, I want to inquire about Wholesale / Bulk orders (Min order 10 pcs with 15-20% discount). Please share the wholesale price list.");
+  window.open("https://wa.me/919582730854?text=" + msg, "_blank");
+}
+
+function openContactModal() {
+  document.getElementById("contactModal").classList.add("show");
+}
+function closeContactModal() {
+  document.getElementById("contactModal").classList.remove("show");
+}
+
+function submitContactForm(e) {
+  e.preventDefault();
+  const topic = document.getElementById("contactTopic").value;
+  const name = document.getElementById("contactName").value;
+  const mobile = document.getElementById("contactMobile").value;
+  const message = document.getElementById("contactMessage").value;
+
+  const text = encodeURIComponent(`Hello B PURA Team,\n\nInquiry Type: *${topic}*\nName: ${name}\nMobile: ${mobile}\nMessage: ${message}`);
+  window.open("https://wa.me/919582730854?text=" + text, "_blank");
+  closeContactModal();
 }
 
 function closeReceipt() {
@@ -400,7 +621,6 @@ function toast(msg) {
   setTimeout(() => t.classList.remove("show"), 2500);
 }
 
-// Admin Panel
 function openAdmin() { document.getElementById("adminModal").classList.add("show"); }
 function closeAdmin() { document.getElementById("adminModal").classList.remove("show"); }
 
@@ -438,7 +658,7 @@ function loadAdminData() {
   }
 
   container.innerHTML = saved.map(o => `
-    <div class="order-admin">
+    <div style="border:1px solid var(--line);border-radius:12px;padding:12px;margin:9px 0;font-size:12px">
       <b>${o.orderId} - ₹${o.total}</b> (${o.date})<br>
       Name: ${o.name} | Phone: ${o.mobile}<br>
       UTR: ${o.utr} | Distance: ${o.dist} km<br>
