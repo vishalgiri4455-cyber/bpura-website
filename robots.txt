@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vishalgiri4455-cyber.github.io/bpura-website/sitemap.xml
