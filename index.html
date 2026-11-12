@@ -198,4 +198,805 @@ button{cursor:pointer}
 .pay-option b{display:block;font-size:13px;color:var(--deep)}
 .upi-box{background:#fdf8ec;border:1px dashed #dfcca5;padding:14px;border-radius:14px;font-size:12px;display:none;margin-top:10px}
 .upi-box.show{display:block}
-.copy-btn{border:1px solid #dfcca5;border
+.copy-btn{border:1px solid #dfcca5;border-radius:8px;background:#fff;padding:6px 10px;font-size:11px;font-weight:800;color:var(--deep)}
+.qr-scanner-img{width:260px;height:260px;object-fit:contain;display:block;margin:14px auto;border-radius:12px;border:1px solid #dfcca5;background:#fff;padding:8px}
+.notice{font-size:11px;color:#806a3e;background:#fdf6e2;border-radius:12px;padding:12px;margin:12px 0;border:1px solid #f1e2be}
+.form-error{color:#b84040;font-size:12px;min-height:18px}
+.full{width:100%;margin-top:12px}
+
+.contact-modal,.receipt,.admin-modal{position:fixed;inset:0;background:rgba(10,24,17,.65);z-index:60;display:none;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(4px)}
+.contact-modal.show,.receipt.show,.admin-modal.show{display:flex}
+.contact-card,.receipt-card,.admin-card{width:min(560px,100%);max-height:90vh;overflow:auto;background:white;border-radius:26px;padding:28px;box-shadow:var(--shadow)}
+.receipt-card h2,.contact-card h2,.admin-card h2{font-family:Georgia,serif;color:var(--deep);font-weight:500;margin:0;font-size:26px}
+.receipt-status{display:inline-block;padding:6px 12px;background:#fef3d6;color:#8a6a26;border-radius:99px;font-size:11px;font-weight:850;margin:12px 0}
+.receipt-details{background:#f5f8f5;padding:16px;border-radius:16px;font-size:12px;white-space:pre-wrap;margin:14px 0;border:1px solid #e1ebe0}
+.hidden{display:none!important}
+.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,24px);background:var(--deep);color:#fff;padding:12px 22px;border-radius:999px;font-size:13px;opacity:0;pointer-events:none;transition:.25s;z-index:100;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.admin-link{border:0;background:none;color:#9cb3a0;font-size:11px;text-decoration:underline;padding:0;cursor:pointer}
+.loc-btn{border:1px solid var(--green);background:var(--sage);color:var(--deep);border-radius:10px;padding:8px 12px;font-size:11px;font-weight:750;margin-top:6px;cursor:pointer}
+
+@media(max-width:900px){.product-grid{grid-template-columns:repeat(2,1fr)}.hero-inner{grid-template-columns:1fr;padding:50px 20px 40px;gap:20px}.hero-visual img{height:320px}.navlinks{gap:14px}.story-inner{grid-template-columns:1fr;gap:30px}.gallery{grid-template-columns:1fr}.combo-banner,.wholesale-banner{flex-direction:column;align-items:flex-start}}
+@media(max-width:650px){.topbar{font-size:10px}.nav{padding:12px 16px}.brand strong{font-size:18px}.navlinks{display:none;position:absolute;top:68px;left:0;right:0;background:#fff;padding:20px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;box-shadow:0 10px 30px rgba(0,0,0,.1)}.navlinks.open{display:flex}.menu-btn{display:inline-block}.hero h1{font-size:42px}.product-grid{grid-template-columns:1fr 1fr;gap:12px}.product-image{height:190px}.delivery-inner{display:block;padding:35px 20px}.delivery-pill{display:inline-block;margin-top:16px}.footer-inner{grid-template-columns:1fr 1fr;gap:20px}.footer-inner>div:first-child{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<div class="topbar">🌿 HANDCRAFTED WITH CARE • SUPPORTING B PURA women's community • DELIVERY IN 5–7 DAYS 🌿</div>
+<header class="header">
+  <nav class="nav">
+    <a class="brand" href="#home"><span class="brand-mark">B</span><span><strong>B PURA</strong><small>women's community</small></span></a>
+    <div class="navlinks" id="navlinks">
+      <a href="#shop">Shop Soaps</a>
+      <a href="#story">Our Community</a>
+      <a href="#care">Our Care</a>
+      <a href="#delivery">Delivery</a>
+      <a href="#" onclick="openContactModal(); return false;">Contact Us</a>
+    </div>
+    <div class="nav-actions">
+      <button class="wholesale-nav-btn" onclick="openWholesaleWhatsApp()">📦 Wholesale Rate</button>
+      <button class="iconbtn" onclick="openCart()">Cart <span class="cart-count" id="cartCount">0</span></button>
+      <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">A little care, made by hand</div>
+      <h1>PURE TOUCH.<br><em>PURE LOVE.</em></h1>
+      <p>Discover the serenity of true handcrafted care. Thoughtfully made soap bars, created with care and a community spirit.</p>
+      <div class="hero-buttons">
+        <a class="btn" href="#shop" style="text-decoration:none">Explore Our Soaps</a>
+        <a class="btn secondary" href="#story" style="text-decoration:none">Meet Our Community</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img id="heroImage" src="https://raw.githubusercontent.com/vishalgiri4455-cyber/bpura-website/main/imresizer-resize-1x1.png" alt="B PURA women's community Handcrafted Soap Collection">
+      <div class="hero-note"><b>₹99 / 100g</b>Handcrafted Soap Bars</div>
+    </div>
+  </div>
+</section>
+
+<div class="trustbar">
+  <div class="trustbar-inner">
+    <div class="trust-item"><span>✿</span>Handcrafted with care</div>
+    <div class="trust-item"><span>♡</span>B PURA women's community Initiative</div>
+    <div class="trust-item"><span>♧</span>Thoughtful everyday care</div>
+  </div>
+</div>
+
+<section class="section" id="shop">
+  <div class="section-head">
+    <div class="eyebrow">Special Offers & Bundles</div>
+    <h2>Find your everyday favourite</h2>
+    <p>Choose from four handcrafted soap varieties. Every bar is 100g and priced at ₹99.</p>
+  </div>
+
+  <div class="combo-banner">
+    <div>
+      <h3>Pack of 6 Combo Pack @ ₹499</h3>
+      <p>Special combo offer price: ₹499 for a set of 6 soaps (Saves extra money compared to MRP ₹594).</p>
+    </div>
+    <button class="btn gold" onclick="addComboToCart()">Add Pack of 6 to Cart (₹499)</button>
+  </div>
+
+  <!-- Product Catalog Grid -->
+  <div class="product-grid" id="productGrid"></div>
+
+  <div class="wholesale-banner">
+    <div>
+      <h3>Wholesale & Bulk Orders</h3>
+      <p>Minimum Bulk Order Quantity: 10 Soaps. Special Wholesale Rates (15% to 20% discount) apply for bulk orders.</p>
+    </div>
+    <button class="btn gold" onclick="openWholesaleWhatsApp()">Inquire for Wholesale Rates</button>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="story-inner">
+    <div class="story-copy">
+      <div class="eyebrow">More than a soap</div>
+      <h2>Made with care.<br>Growing together.</h2>
+      <p>B PURA women's community celebrates the skill, effort and creativity of women. Each handcrafted product represents care, collaboration and an opportunity to build confidence through meaningful work.</p>
+      <div class="story-points">
+        <div class="point"><b>Community first</b>Creating opportunities through shared skills.</div>
+        <div class="point"><b>Handcrafted work</b>Careful preparation and thoughtful packaging.</div>
+        <div class="point"><b>Local spirit</b>A community-focused initiative.</div>
+        <div class="point"><b>Everyday care</b>Simple soap choices for daily routines.</div>
+      </div>
+      <a class="btn" href="#shop" style="text-decoration:none">Shop the collection</a>
+    </div>
+    <div class="story-image">
+      <img id="communityImage" src="https://raw.githubusercontent.com/vishalgiri4455-cyber/bpura-website/main/Gemini_Generated_Image_cn22dacn22dacn22.png" alt="B PURA women's community making soaps">
+    </div>
+  </div>
+</section>
+
+<section class="section" id="care">
+  <div class="section-head">
+    <div class="eyebrow">A little ritual for every day</div>
+    <h2>Care, from start to finish</h2>
+    <p>Explore our product stories and simple bathing-care guide.</p>
+  </div>
+  <div class="gallery" id="careGallery"></div>
+</section>
+
+<section class="delivery-strip" id="delivery">
+  <div class="delivery-inner">
+    <div>
+      <h2>Thoughtful care, delivered to you.</h2>
+      <p>Expected delivery: 5–7 days. Delivery charges are calculated by distance from Mohammadpur Jharsa, Sector 36, Gurugram.</p>
+    </div>
+    <div class="delivery-pill">₹11 per kilometre</div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <h3>B PURA women's community</h3>
+      <p>Pure touch. Pure love. Handcrafted care with a community spirit.</p>
+      <p>For orders and assistance, contact our team on WhatsApp.</p>
+    </div>
+    <div>
+      <b>Explore</b>
+      <a href="#shop">Shop Soaps</a>
+      <a href="#story">Our Community</a>
+      <a href="#care">Our Care</a>
+      <a href="#" onclick="openContactModal(); return false;">Contact Us</a>
+    </div>
+    <div>
+      <b>Customer care</b>
+      <a href="https://wa.me/919582730854" target="_blank" rel="noopener">WhatsApp: +91 9582730854</a>
+      <a href="mailto:bpura.love07@gmail.com">bpura.love07@gmail.com</a>
+      <button class="admin-link" onclick="openAdmin()">Admin access</button>
+    </div>
+  </div>
+  <div class="copyright">© <span id="year"></span> B PURA women's community. All rights reserved. Product images are provided for product information.</div>
+</footer>
+
+<div class="overlay" id="cartOverlay" onclick="overlayClose(event)">
+  <aside class="drawer" role="dialog" aria-modal="true" aria-label="Shopping cart" onclick="event.stopPropagation()">
+    <div class="drawer-head">
+      <h2>Your Cart</h2>
+      <button class="close" onclick="closeCart()" aria-label="Close cart">×</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="summary" id="cartSummary"></div>
+    <form class="checkout-form" id="checkoutForm" onsubmit="handleCheckoutSubmit(event)">
+      <h3>Delivery details</h3>
+      <div class="field"><label for="customerName">CUSTOMER FULL NAME *</label><input id="customerName" autocomplete="name" required maxlength="90" placeholder="Enter your full name"></div>
+      <div class="two-col">
+        <div class="field"><label for="customerMobile">MOBILE NUMBER *</label><input id="customerMobile" type="tel" inputmode="numeric" pattern="[6-9][0-9]{9}" maxlength="10" required placeholder="10-digit mobile"></div>
+        <div class="field"><label for="customerEmail">EMAIL</label><input id="customerEmail" type="email" autocomplete="email" placeholder="name@example.com"></div>
+      </div>
+      <div class="field"><label for="customerAddress">FULL DELIVERY ADDRESS *</label><textarea id="customerAddress" required maxlength="500" placeholder="House/Street, Area, City, State"></textarea></div>
+      <div class="two-col">
+        <div class="field"><label for="customerPin">PINCODE *</label><input id="customerPin" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required placeholder="6-digit pincode"></div>
+        <div class="field"><label for="distanceKm">DELIVERY DISTANCE (KM)</label><input id="distanceKm" type="number" min="0" max="1000" step="0.1" placeholder="Distance in km" oninput="recalcDelivery()"></div>
+      </div>
+      <button type="button" class="loc-btn" onclick="detectDistance()">📍 Detect My Location & Calculate Distance</button>
+      <div class="delivery-calc">
+        <div class="sumline"><span>Delivery rate</span><b id="deliveryRateLabel">₹11 / km</b></div>
+        <div class="sumline"><span>Delivery charge</span><b id="deliveryChargeLabel">To be confirmed</b></div>
+        <div class="muted-note" id="distNote">Click the button above or enter distance in km. If distance is 0 or cannot be determined automatically, delivery charges will be confirmed by our team.</div>
+      </div>
+      <div class="field"><label for="deliveryMethod">PREFERRED DELIVERY METHOD</label><select id="deliveryMethod"></select></div>
+
+      <h3>Payment method</h3>
+      <div class="pay-options">
+        <label class="pay-option">
+          <input type="radio" name="paymentMethod" value="razorpay" checked onchange="togglePaymentUI()">
+          <span><b>Razorpay Online Payment (Cards, UPI, Netbanking)</b>Instant automated confirmation using Razorpay popup.</span>
+        </label>
+        <label class="pay-option">
+          <input type="radio" name="paymentMethod" value="upi_manual" onchange="togglePaymentUI()">
+          <span><b>Direct Manual UPI Payment</b>Pay via UPI ID <b>bidyanandbharti@ybl</b> or scan large QR below and submit 12-digit UTR reference.</span>
+        </label>
+      </div>
+
+      <div class="upi-box" id="upiBox">
+        <b>UPI ID: bidyanandbharti@ybl</b> <button class="copy-btn" type="button" onclick="copyUPI()">Copy UPI ID</button>
+        <p>Scan the PhonePe QR Code below easily with any UPI app, pay the total amount, and paste the 12-digit UTR transaction reference below.</p>
+        <img class="qr-scanner-img" src="https://raw.githubusercontent.com/vishalgiri4455-cyber/bpura-website/main/WhatsApp%20Image%202026-11-12%20at%2016.41.11.jpeg" alt="B PURA PhonePe QR Scanner">
+        <div class="field"><label for="utrNumber">UTR / TRANSACTION REFERENCE NUMBER *</label><input id="utrNumber" maxlength="40" placeholder="Enter 12-digit UTR after payment"></div>
+        <div class="notice">Payment status: <b>Awaiting Verification</b> until verified by seller. (Never collect UPI PIN, OTP, or passwords).</div>
+      </div>
+      
+      <div class="notice">Expected delivery: 5–7 days. Delivery notes: Porter / Local Delivery Personnel / Available Apps.</div>
+      <div class="form-error" id="formError" role="alert"></div>
+      <button class="btn full" id="placeOrderBtn" type="submit">Proceed to Pay & Confirm Order</button>
+    </form>
+  </aside>
+</div>
+
+<div class="contact-modal" id="contactModal">
+  <div class="contact-card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h2>Contact Us & Inquiries</h2>
+      <button class="close" onclick="closeContactModal()">×</button>
+    </div>
+    <p class="muted-note">Select your query type below and connect directly with our team on WhatsApp.</p>
+    <form onsubmit="submitContactForm(event)">
+      <div class="field">
+        <label for="contactTopic">INQUIRY TYPE *</label>
+        <select id="contactTopic" required>
+          <option value="Skin Problem Related">Skin Problem Related Inquiry</option>
+          <option value="Shipping Related">Shipping & Delivery Related</option>
+          <option value="Payment Related">Payment & UTR Related</option>
+          <option value="Other">Other Inquiry</option>
+        </select>
+      </div>
+      <div class="field"><label for="contactName">YOUR NAME *</label><input id="contactName" required placeholder="Enter your name"></div>
+      <div class="field"><label for="contactMobile">MOBILE NUMBER *</label><input id="contactMobile" type="tel" required placeholder="10-digit mobile number"></div>
+      <div class="field"><label for="contactMessage">YOUR MESSAGE *</label><textarea id="contactMessage" required placeholder="Type your query here..."></textarea></div>
+      <button type="submit" class="btn full">Send Inquiry via WhatsApp</button>
+    </form>
+  </div>
+</div>
+
+<div class="receipt" id="receipt">
+  <div class="receipt-card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h2>Order Confirmation Receipt</h2>
+      <button class="close" onclick="closeReceipt()">×</button>
+    </div>
+    <span class="receipt-status" id="receiptStatus">Awaiting Verification</span>
+    <p class="muted-note" id="receiptIntro">Your order summary is ready.</p>
+    <div class="receipt-details" id="receiptDetails"></div>
+    <div style="display:flex;gap:9px;flex-wrap:wrap">
+      <button class="btn" id="whatsappReceipt" onclick="sendWhatsApp()">Send Pre-filled WhatsApp Summary</button>
+      <button class="btn secondary" onclick="window.print()">Print Receipt</button>
+    </div>
+    <p class="muted-note">Keep your order reference for future communication.</p>
+  </div>
+</div>
+
+<div class="admin-modal" id="adminModal">
+  <div class="admin-card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h2>Admin Dashboard</h2>
+      <button class="close" onclick="closeAdmin()">×</button>
+    </div>
+    <div id="adminLogin">
+      <p class="muted-note">Enter admin password to manage local settings and view orders.</p>
+      <div class="field"><label for="adminPassword">ADMIN PASSWORD</label><input id="adminPassword" type="password" placeholder="Password"></div>
+      <button class="btn" onclick="adminLogin()">Unlock Dashboard</button>
+      <div class="form-error" id="adminError"></div>
+      <p class="notice">Default password: <b>admin123</b></p>
+    </div>
+    <div id="adminPanel" class="hidden">
+      <h3>Editable Store Settings</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div class="field"><label for="setPickup">PICKUP LOCATION</label><input id="setPickup"></div>
+        <div class="field"><label for="setRate">DELIVERY RATE PER KM (₹)</label><input id="setRate" type="number" min="0" step=".5"></div>
+        <div class="field"><label for="setDays">EXPECTED DELIVERY DAYS</label><input id="setDays"></div>
+        <div class="field"><label for="setRazorpayKey">RAZORPAY KEY ID</label><input id="setRazorpayKey"></div>
+      </div>
+      <div class="field"><label for="setMethods">ACTIVE DELIVERY METHODS (comma separated)</label><input id="setMethods"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0">
+        <button class="btn" onclick="saveSettings()">Save Settings</button>
+        <button class="btn secondary" onclick="exportOrders()">Export Orders JSON</button>
+        <button class="btn secondary" onclick="clearOrders()">Clear Local Orders</button>
+        <button class="btn secondary" onclick="adminLogout()">Lock Dashboard</button>
+      </div>
+      <div style="border-top:1px solid var(--line);margin-top:18px;padding-top:12px">
+        <h3>Saved Local Orders <span id="orderCount" class="muted-note"></span></h3>
+        <div id="adminOrders"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const PRODUCTS = [
+  {
+    id: "aloe",
+    name: "ALOE VERA SOAP",
+    weight: "100g",
+    price: 99,
+    image: "https://raw.githubusercontent.com/vishalgiri4455-cyber/bpura-website/main/Pura%20Aloe%20Vera%20Soap.png",
+    subtitle: "Handcrafted hydrating aloe vera soap",
+    badges: [],
+    ingredients: "Aloe Vera, Coconut Oil, Castor Oil, Olive Oil, Palm Oil, Glycerine, Distilled Water."
+  },
+  {
+    id: "lemon",
+    name: "LEMON SOAP",
+    weight: "100g",
+    price: 99,
+    image: "https://raw.githubusercontent.com/vishalgiri4455-cyber/bpura-website/main/Pura%20Lemon%20Soap%20Trio%20Advertisement.png",
+    subtitle: "Handcrafted refreshing citrus soap",
+    badges: [],
+    ingredients: "Lemon, Honey, Coconut Oil, Olive Oil, Palm Oil, Glycerine, Distilled Water, Stearic Acid."
+  },
+  {
+    id: "neem",
+    name: "NEEM SOAP",
+    weight: "100g",
+    price: 99,
+    image: "https://raw.githubusercontent.com/vishalgiri4455-cyber/bpura-website/main/Neem%20Soap_%20Pure%20Touch,%20Pure%20Love.png",
+    subtitle: "Handcrafted purifying neem soap",
+    badges: ["Paraffin Free", "Sulfate Free"],
+    ingredients: "Neem, Coconut Oil, Olive Oil, Palm Oil, Glycerine, Distilled Water, Stearic Acid, Sorbitol, Propylene Glycol."
+  },
+  {
+    id: "sandalwood",
+    name: "SANDALWOOD SOAP",
+    weight: "100g",
+    price: 99,
+    image: "https://raw.githubusercontent.com/vishalgiri4455-cyber/bpura-website/main/imresizer-resize-1x1.png",
+    subtitle: "Handcrafted soap with Sandalwood & Goat Milk",
+    badges: ["Paraffin Free", "Sulfate Free"],
+    ingredients: "Sandalwood, Goat Milk, Turmeric, Coconut Oil, Olive Oil, Palm Oil, Glycerine, Sodium Hydroxide, Distilled Water, Stearic Acid, Sorbitol."
+  },
+  {
+    id: "combo6",
+    name: "Pack of 6 Combo Pack",
+    weight: "600g",
+    price: 499,
+    image: "https://raw.githubusercontent.com/vishalgiri4455-cyber/bpura-website/main/imresizer-resize-1x3.png",
+    subtitle: "Special combo set of 6 handcrafted soaps (MRP ₹594)",
+    badges: ["Combo Offer", "Save Money"],
+    ingredients: "Combination of Sandalwood, Neem, Lemon & Aloe Vera handcrafted soap bars."
+  }
+];
+
+let cart = [];
+let storeSettings = {
+  pickup: "Mohammadpur Jharsa, Sector 36, Gurugram",
+  ratePerKm: 11,
+  deliveryDays: "5–7 days",
+  deliveryMethods: ["Porter / Local Delivery Personnel", "Courier / Transport", "Customer Pickup"],
+  razorpayKey: "YOUR_RAZORPAY_KEY_ID"
+};
+
+const ORIGIN_LAT = 28.4230;
+const ORIGIN_LNG = 76.9850;
+
+function init() {
+  document.getElementById("year").innerText = new Date().getFullYear();
+  renderProducts();
+  renderCareGallery();
+  renderDeliveryMethods();
+  renderCartSummary();
+}
+
+function renderProducts() {
+  const grid = document.getElementById("productGrid");
+  const baseProducts = PRODUCTS.slice(0, 4);
+  grid.innerHTML = baseProducts.map(p => `
+    <article class="product-card">
+      <div class="product-image">
+        <img src="${p.image}" alt="${p.name}">
+        <span class="weight-tag">${p.weight}</span>
+      </div>
+      <div class="product-body">
+        <h3>${p.name}</h3>
+        <p class="sub">${p.subtitle}</p>
+        <div class="badges">
+          ${p.badges.map(b => `<span class="badge">${b}</span>`).join('')}
+        </div>
+        <div class="price-row"><span class="price">₹${p.price} <small>/ bar</small></span></div>
+        <details class="ingredients">
+          <summary>Ingredients</summary>
+          <p>${p.ingredients}</p>
+        </details>
+        <button class="add-btn" onclick="addToCart('${p.id}')">Add to Cart</button>
+      </div>
+    </article>
+  `).join('');
+}
+
+function addComboToCart() {
+  addToCart("combo6");
+}
+
+function renderCareGallery() {
+  const g = document.getElementById("careGallery");
+  const items = [
+    { img: "https://raw.githubusercontent.com/vishalgiri4455-cyber/bpura-website/main/B%20Pura%20Sandalwood%20Soap%20Benefits%20Poster.png", title: "Why B PURA Sandalwood Soap?" },
+    { img: "https://raw.githubusercontent.com/vishalgiri4455-cyber/bpura-website/main/Pura%20Soap%20Skincare%20Steps.png", title: "How To Use - 4 Step Bathing Ritual" }
+  ];
+  g.innerHTML = items.map(item => `
+    <div class="gallery-card">
+      <img src="${item.img}" alt="${item.title}">
+      <div class="info">${item.title}</div>
+    </div>
+  `).join('');
+}
+
+function renderDeliveryMethods() {
+  const sel = document.getElementById("deliveryMethod");
+  sel.innerHTML = storeSettings.deliveryMethods.map(m => `<option value="${m}">${m}</option>`).join('');
+}
+
+function addToCart(id) {
+  const item = cart.find(i => i.id === id);
+  if(item) item.qty++;
+  else cart.push({id, qty: 1});
+  updateCart();
+  toast("Item added to cart!");
+}
+
+function updateCart() {
+  document.getElementById("cartCount").innerText = cart.reduce((s,i)=>s+i.qty, 0);
+  renderCartItems();
+  renderCartSummary();
+}
+
+function renderCartItems() {
+  const container = document.getElementById("cartItems");
+  if(cart.length === 0) {
+    container.innerHTML = `<div class="empty">Your cart is empty</div>`;
+    return;
+  }
+  container.innerHTML = cart.map(i => {
+    const p = PRODUCTS.find(prod => prod.id === i.id);
+    return `
+      <div class="cart-item">
+        <img src="${p.image}" alt="${p.name}">
+        <div>
+          <b>${p.name}</b>
+          <small>₹${p.price} each</small>
+          <div class="qty">
+            <button onclick="changeQty('${i.id}', -1)">-</button>
+            <span>${i.qty}</span>
+            <button onclick="changeQty('${i.id}', 1)">+</button>
+            <button class="remove" onclick="removeItem('${i.id}')">Remove</button>
+          </div>
+        </div>
+        <b>₹${p.price * i.qty}</b>
+      </div>
+    `;
+  }).join('');
+}
+
+function changeQty(id, delta) {
+  const item = cart.find(i => i.id === id);
+  if(item) {
+    item.qty += delta;
+    if(item.qty <= 0) cart = cart.filter(i => i.id !== id);
+  }
+  updateCart();
+}
+
+function removeItem(id) {
+  cart = cart.filter(i => i.id !== id);
+  updateCart();
+  toast("Item removed from cart");
+}
+
+function renderCartSummary() {
+  const subtotal = cart.reduce((s, i) => {
+    const p = PRODUCTS.find(prod => prod.id === i.id);
+    return s + (p.price * i.qty);
+  }, 0);
+
+  const singleSoapsQty = cart.filter(i => i.id !== 'combo6').reduce((s, i) => s + i.qty, 0);
+  let freeBars = 0;
+  if(singleSoapsQty >= 4) freeBars = Math.floor(singleSoapsQty / 4);
+
+  const dist = parseFloat(document.getElementById("distanceKm").value) || 0;
+  let delCharge = 0;
+  let delText = "Delivery charges will be confirmed by our team";
+  if(dist > 0) {
+    delCharge = Math.round(dist * storeSettings.ratePerKm);
+    delText = "₹" + delCharge;
+  }
+  document.getElementById("deliveryChargeLabel").innerText = delText;
+
+  const finalTotal = subtotal + delCharge;
+
+  document.getElementById("cartSummary").innerHTML = `
+    <div class="sumline"><span>Items Subtotal</span><b>₹${subtotal}</b></div>
+    ${freeBars > 0 ? `<div class="sumline" style="color:var(--green)"><span>Offer Applied</span><b>Pack of 4 + 1 FREE (${freeBars} Free Soap)</b></div>` : ''}
+    <div class="sumline"><span>Estimated Delivery Charge</span><b>${dist > 0 ? '₹' + delCharge : 'To be confirmed'}</b></div>
+    <div class="sumline total"><span>Total Payable</span><b>₹${finalTotal}</b></div>
+  `;
+}
+
+function recalcDelivery() {
+  renderCartSummary();
+}
+
+function togglePaymentUI() {
+  const method = document.querySelector('input[name="paymentMethod"]:checked').value;
+  const upiBox = document.getElementById("upiBox");
+  const utrInput = document.getElementById("utrNumber");
+  if(method === "upi_manual") {
+    upiBox.classList.add("show");
+    utrInput.required = true;
+  } else {
+    upiBox.classList.remove("show");
+    utrInput.required = false;
+  }
+}
+
+function detectDistance() {
+  if(!navigator.geolocation) {
+    alert("Geolocation is not supported by your browser.");
+    return;
+  }
+  document.getElementById("distNote").innerText = "Detecting location and calculating distance...";
+  navigator.geolocation.getCurrentPosition(async (pos) => {
+    const lat = pos.coords.latitude;
+    const lng = pos.coords.longitude;
+    try {
+      const res = await fetch(`https://router.project-osrm.org/route/v1/driving/${ORIGIN_LNG},${ORIGIN_LAT};${lng},${lat}?overview=false`);
+      const data = await res.json();
+      if(data.routes && data.routes.length > 0) {
+        const meters = data.routes[0].distance;
+        const km = (meters / 1000).toFixed(1);
+        document.getElementById("distanceKm").value = km;
+        document.getElementById("distNote").innerText = `Distance detected: ${km} km from Gurugram hub.`;
+        recalcDelivery();
+      } else {
+        fallbackDistance(lat, lng);
+      }
+    } catch(e) {
+      fallbackDistance(lat, lng);
+    }
+  }, (err) => {
+    alert("Location permission denied or unavailable. Delivery charges will be confirmed by our team.");
+    document.getElementById("distNote").innerText = "Location access failed. Enter distance manually.";
+  });
+}
+
+function fallbackDistance(lat, lng) {
+  const R = 6371;
+  const dLat = (lat - ORIGIN_LAT) * Math.PI / 180;
+  const dLng = (lng - ORIGIN_LNG) * Math.PI / 180;
+  const a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(ORIGIN_LAT*Math.PI/180)*Math.cos(lat*Math.PI/180)*Math.sin(dLng/2)*Math.sin(dLng/2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  const km = (R * c * 1.2).toFixed(1);
+  document.getElementById("distanceKm").value = km;
+  document.getElementById("distNote").innerText = `Approx. distance calculated: ${km} km.`;
+  recalcDelivery();
+}
+
+function handleCheckoutSubmit(e) {
+  e.preventDefault();
+  if(cart.length === 0) {
+    alert("Your cart is empty!");
+    return;
+  }
+
+  const method = document.querySelector('input[name="paymentMethod"]:checked').value;
+  const name = document.getElementById("customerName").value;
+  const mobile = document.getElementById("customerMobile").value;
+  const email = document.getElementById("customerEmail").value || "customer@example.com";
+  const address = document.getElementById("customerAddress").value;
+  const pin = document.getElementById("customerPin").value;
+  const dist = parseFloat(document.getElementById("distanceKm").value) || 0;
+  const subtotal = cart.reduce((s, i) => s + (PRODUCTS.find(p=>p.id===i.id).price * i.qty), 0);
+  const delCharge = dist > 0 ? Math.round(dist * storeSettings.ratePerKm) : 0;
+  const total = subtotal + delCharge;
+
+  if(method === "razorpay") {
+    if(!storeSettings.razorpayKey || storeSettings.razorpayKey === "YOUR_RAZORPAY_KEY_ID") {
+      alert("Razorpay Key ID is not configured. Falling back to Manual UPI option.");
+      document.querySelector('input[value="upi_manual"]').checked = true;
+      togglePaymentUI();
+      return;
+    }
+    const options = {
+      key: storeSettings.razorpayKey,
+      amount: total * 100,
+      currency: "INR",
+      name: "B PURA women's community",
+      description: "Handcrafted Soaps Order",
+      handler: function (response) {
+        processOrderSuccess({
+          paymentId: response.razorpay_payment_id,
+          paymentMethod: "Razorpay Online",
+          status: "Paid (Verified)",
+          name, mobile, address, pin, dist, delCharge, total
+        });
+      },
+      prefill: {
+        name: name,
+        contact: mobile,
+        email: email
+      },
+      theme: {
+        color: "#2d523c"
+      }
+    };
+    const rzp = new Razorpay(options);
+    rzp.open();
+  } else {
+    const utr = document.getElementById("utrNumber").value;
+    if(!utr) {
+      alert("Please enter the 12-digit UTR transaction reference number.");
+      return;
+    }
+    processOrderSuccess({
+      paymentId: utr,
+      paymentMethod: "Manual UPI (bidyanandbharti@ybl)",
+      status: "Awaiting Verification",
+      name, mobile, address, pin, dist, delCharge, total
+    });
+  }
+}
+
+function processOrderSuccess(order) {
+  const orderId = "BP-" + Math.floor(100000 + Math.random() * 900000);
+  const singleSoapsQty = cart.filter(i => i.id !== 'combo6').reduce((s, i) => s + i.qty, 0);
+  let freeBars = singleSoapsQty >= 4 ? Math.floor(singleSoapsQty / 4) : 0;
+
+  let itemSummaryText = cart.map(i => {
+    const prod = PRODUCTS.find(p => p.id === i.id);
+    return `• ${prod.name} x ${i.qty} = ₹${prod.price * i.qty}`;
+  }).join('\n');
+
+  if(freeBars > 0) {
+    itemSummaryText += `\n• Pack of 4 + 1 FREE Bonus: ${freeBars} Free Soap Bar(s)`;
+  }
+
+  const orderData = {
+    orderId, ...order, items: cart, date: new Date().toLocaleString()
+  };
+
+  const saved = JSON.parse(localStorage.getItem("bpura_orders") || "[]");
+  saved.push(orderData);
+  localStorage.setItem("bpura_orders", JSON.stringify(saved));
+
+  const receiptText = 
+    `Order ID: ${orderId}\n` +
+    `Customer Name: ${order.name}\n` +
+    `Mobile: ${order.mobile}\n` +
+    `Delivery Address: ${order.address}, Pincode: ${order.pin}\n` +
+    `Distance: ${order.dist > 0 ? order.dist + ' km' : 'To be confirmed by seller'}\n` +
+    `Delivery Fee: ${order.delCharge > 0 ? '₹' + order.delCharge : 'To be confirmed'}\n` +
+    `Items Ordered:\n${itemSummaryText}\n` +
+    `Final Payable Amount: ₹${order.total}\n` +
+    `Payment Method: ${order.paymentMethod}\n` +
+    `Transaction ID / UTR: ${order.paymentId}\n` +
+    `Payment Status: ${order.status}\n` +
+    `Delivery Notes: Porter / Local Delivery Personnel / Available Apps`;
+
+  document.getElementById("receiptStatus").innerText = order.status;
+  document.getElementById("receiptDetails").innerText = receiptText;
+
+  closeCart();
+  document.getElementById("receipt").classList.add("show");
+  cart = [];
+  updateCart();
+}
+
+function sendWhatsApp() {
+  const details = document.getElementById("receiptDetails").innerText;
+  const msg = encodeURIComponent("Hello B PURA women's community team, I have placed an order:\n\n" + details);
+  window.open("https://wa.me/919582730854?text=" + msg, "_blank");
+}
+
+function openWholesaleWhatsApp() {
+  const msg = encodeURIComponent("Hello B PURA women's community team, I want to place a Bulk/Wholesale order (Minimum 10 soaps). Please share wholesale prices and details.");
+  window.open("https://wa.me/919582730854?text=" + msg, "_blank");
+}
+
+function openContactModal() {
+  document.getElementById("contactModal").classList.add("show");
+}
+function closeContactModal() {
+  document.getElementById("contactModal").classList.remove("show");
+}
+
+function submitContactForm(e) {
+  e.preventDefault();
+  const topic = document.getElementById("contactTopic").value;
+  const name = document.getElementById("contactName").value;
+  const mobile = document.getElementById("contactMobile").value;
+  const message = document.getElementById("contactMessage").value;
+
+  const text = encodeURIComponent(`Hello B PURA women's community team,\n\nInquiry Type: *${topic}*\nName: ${name}\nMobile: ${mobile}\nMessage: ${message}`);
+  window.open("https://wa.me/919582730854?text=" + text, "_blank");
+  closeContactModal();
+}
+
+function closeReceipt() {
+  document.getElementById("receipt").classList.remove("show");
+}
+
+function copyUPI() {
+  navigator.clipboard.writeText("bidyanandbharti@ybl");
+  toast("UPI ID copied!");
+}
+
+function openCart() { document.getElementById("cartOverlay").classList.add("show"); }
+function closeCart() { document.getElementById("cartOverlay").classList.remove("show"); }
+function overlayClose(e) { if(e.target.id === "cartOverlay") closeCart(); }
+function toggleMenu() { document.getElementById("navlinks").classList.toggle("open"); }
+
+function toast(msg) {
+  const t = document.getElementById("toast");
+  t.innerText = msg;
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 2500);
+}
+
+function openAdmin() { document.getElementById("adminModal").classList.add("show"); }
+function closeAdmin() { document.getElementById("adminModal").classList.remove("show"); }
+
+function adminLogin() {
+  const pass = document.getElementById("adminPassword").value;
+  if(pass === "admin123") {
+    document.getElementById("adminLogin").classList.add("hidden");
+    document.getElementById("adminPanel").classList.remove("hidden");
+    loadAdminData();
+  } else {
+    document.getElementById("adminError").innerText = "Invalid password.";
+  }
+}
+
+function adminLogout() {
+  document.getElementById("adminLogin").classList.remove("hidden");
+  document.getElementById("adminPanel").classList.add("hidden");
+  document.getElementById("adminPassword").value = "";
+}
+
+function loadAdminData() {
+  document.getElementById("setPickup").value = storeSettings.pickup;
+  document.getElementById("setRate").value = storeSettings.ratePerKm;
+  document.getElementById("setDays").value = storeSettings.deliveryDays;
+  document.getElementById("setRazorpayKey").value = storeSettings.razorpayKey;
+  document.getElementById("setMethods").value = storeSettings.deliveryMethods.join(", ");
+
+  const saved = JSON.parse(localStorage.getItem("bpura_orders") || "[]");
+  document.getElementById("orderCount").innerText = `(${saved.length} orders)`;
+  
+  const container = document.getElementById("adminOrders");
+  if(saved.length === 0) {
+    container.innerHTML = `<p class="muted-note">No orders received yet.</p>`;
+    return;
+  }
+  container.innerHTML = saved.map(o => `
+    <div style="border:1px solid var(--line);border-radius:12px;padding:12px;margin:9px 0;font-size:12px">
+      <b>${o.orderId} - ₹${o.total}</b> (${o.date})<br>
+      Name: ${o.name} | Phone: ${o.mobile}<br>
+      Method: ${o.paymentMethod} | ID/UTR: ${o.paymentId}<br>
+      Distance: ${o.dist} km | Status: ${o.status}<br>
+      Address: ${o.address} - ${o.pin}
+    </div>
+  `).join('');
+}
+
+function saveSettings() {
+  storeSettings.pickup = document.getElementById("setPickup").value;
+  storeSettings.ratePerKm = parseFloat(document.getElementById("setRate").value) || 11;
+  storeSettings.deliveryDays = document.getElementById("setDays").value;
+  storeSettings.razorpayKey = document.getElementById("setRazorpayKey").value;
+  storeSettings.deliveryMethods = document.getElementById("setMethods").value.split(",").map(s=>s.trim());
+
+  renderDeliveryMethods();
+  toast("Settings saved!");
+}
+
+function exportOrders() {
+  const data = localStorage.getItem("bpura_orders") || "[]";
+  const blob = new Blob([data], {type: "application/json"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "bpura_orders.json";
+  a.click();
+}
+
+function clearOrders() {
+  if(confirm("Are you sure you want to clear all local orders?")) {
+    localStorage.removeItem("bpura_orders");
+    loadAdminData();
+    toast("Orders cleared!");
+  }
+}
+
+window.onload = init;
+</script>
+</body>
+</html>
