@@ -199,6 +199,7 @@ button{cursor:pointer}
 .upi-box{background:#fdf8ec;border:1px dashed #dfcca5;padding:14px;border-radius:14px;font-size:12px;display:none;margin-top:10px}
 .upi-box.show{display:block}
 .copy-btn{border:1px solid #dfcca5;border-radius:8px;background:#fff;padding:6px 10px;font-size:11px;font-weight:800;color:var(--deep)}
+.qr-scanner-img{width:180px;height:180px;object-fit:contain;display:block;margin:10px auto;border-radius:12px;border:1px solid #dfcca5;background:#fff;padding:6px}
 .notice{font-size:11px;color:#806a3e;background:#fdf6e2;border-radius:12px;padding:12px;margin:12px 0;border:1px solid #f1e2be}
 .form-error{color:#b84040;font-size:12px;min-height:18px}
 .full{width:100%;margin-top:12px}
@@ -395,13 +396,14 @@ button{cursor:pointer}
         </label>
         <label class="pay-option">
           <input type="radio" name="paymentMethod" value="upi_manual" onchange="togglePaymentUI()">
-          <span><b>Direct Manual UPI Payment</b>Pay via UPI ID <b>9931843195@ybl</b> and submit 12-digit UTR reference.</span>
+          <span><b>Direct Manual UPI Payment</b>Pay via UPI ID <b>bidyanandbharti@ybl</b> or scan QR below and submit 12-digit UTR reference.</span>
         </label>
       </div>
 
       <div class="upi-box" id="upiBox">
-        <b>UPI ID: 9931843195@ybl</b> <button class="copy-btn" type="button" onclick="copyUPI()">Copy UPI ID</button>
-        <p>Open your preferred UPI app (GPay, PhonePe, Paytm), pay the total amount, and paste the 12-digit UTR transaction reference below.</p>
+        <b>UPI ID: bidyanandbharti@ybl</b> <button class="copy-btn" type="button" onclick="copyUPI()">Copy UPI ID</button>
+        <p>Scan the PhonePe QR Code below or open your preferred UPI app, pay the total amount, and paste the 12-digit UTR transaction reference below.</p>
+        <img class="qr-scanner-img" src="https://raw.githubusercontent.com/vishalgiri4455-cyber/bpura-website/main/WhatsApp%20Image%202026-11-12%20at%2016.41.11.jpeg" alt="B PURA PhonePe QR Scanner">
         <div class="field"><label for="utrNumber">UTR / TRANSACTION REFERENCE NUMBER *</label><input id="utrNumber" maxlength="40" placeholder="Enter 12-digit UTR after payment"></div>
         <div class="notice">Payment status: <b>Awaiting Verification</b> until verified by seller. (Never collect UPI PIN, OTP, or passwords).</div>
       </div>
@@ -818,7 +820,7 @@ function handleCheckoutSubmit(e) {
     }
     processOrderSuccess({
       paymentId: utr,
-      paymentMethod: "Manual UPI (9931843195@ybl)",
+      paymentMethod: "Manual UPI (bidyanandbharti@ybl)",
       status: "Awaiting Verification",
       name, mobile, address, pin, dist, delCharge, total
     });
@@ -905,7 +907,7 @@ function closeReceipt() {
 }
 
 function copyUPI() {
-  navigator.clipboard.writeText("9931843195@ybl");
+  navigator.clipboard.writeText("bidyanandbharti@ybl");
   toast("UPI ID copied!");
 }
 
@@ -970,6 +972,7 @@ function loadAdminData() {
 }
 
 function saveSettings() {
+  storeSettings.pickup = document.getElementById("setPickup":value; // wait, let's keep clean standard
   storeSettings.pickup = document.getElementById("setPickup").value;
   storeSettings.ratePerKm = parseFloat(document.getElementById("setRate").value) || 11;
   storeSettings.deliveryDays = document.getElementById("setDays").value;
