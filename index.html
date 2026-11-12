@@ -140,10 +140,10 @@ button{cursor:pointer}
 .point b{display:block;color:var(--deep);font-size:14px;margin-bottom:4px}
 
 /* Care Gallery */
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
 .gallery-card{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 8px 25px rgba(20,46,33,.05);transition:.25s}
 .gallery-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-.gallery-card img{width:100%;height:340px;object-fit:cover;display:block}
+.gallery-card img{width:100%;height:380px;object-fit:cover;display:block}
 .gallery-card .info{padding:16px 20px;font-size:14px;color:var(--deep);font-weight:750;background:#fff;border-top:1px solid var(--line)}
 
 /* Delivery Strip */
@@ -199,7 +199,6 @@ button{cursor:pointer}
 .upi-box{background:#fdf8ec;border:1px dashed #dfcca5;padding:14px;border-radius:14px;font-size:12px;display:none;margin-top:10px}
 .upi-box.show{display:block}
 .copy-btn{border:1px solid #dfcca5;border-radius:8px;background:#fff;padding:6px 10px;font-size:11px;font-weight:800;color:var(--deep)}
-.qr-scanner-img{width:180px;height:180px;object-fit:contain;display:block;margin:10px auto;border-radius:12px;border:1px solid #dfcca5;background:#fff;padding:6px}
 .notice{font-size:11px;color:#806a3e;background:#fdf6e2;border-radius:12px;padding:12px;margin:12px 0;border:1px solid #f1e2be}
 .form-error{color:#b84040;font-size:12px;min-height:18px}
 .full{width:100%;margin-top:12px}
@@ -320,7 +319,7 @@ button{cursor:pointer}
   <div class="section-head">
     <div class="eyebrow">A little ritual for every day</div>
     <h2>Care, from start to finish</h2>
-    <p>Explore our product stories, natural ingredients, and simple bathing-care guide.</p>
+    <p>Explore our product stories and simple bathing-care guide.</p>
   </div>
   <div class="gallery" id="careGallery"></div>
 </section>
@@ -396,14 +395,13 @@ button{cursor:pointer}
         </label>
         <label class="pay-option">
           <input type="radio" name="paymentMethod" value="upi_manual" onchange="togglePaymentUI()">
-          <span><b>Direct Manual UPI Payment</b>Pay via UPI ID <b>bidyanandbharti@ybl</b> or scan QR below and submit 12-digit UTR reference.</span>
+          <span><b>Direct Manual UPI Payment</b>Pay via UPI ID <b>9931843195@ybl</b> and submit 12-digit UTR reference.</span>
         </label>
       </div>
 
       <div class="upi-box" id="upiBox">
-        <b>UPI ID: bidyanandbharti@ybl</b> <button class="copy-btn" type="button" onclick="copyUPI()">Copy UPI ID</button>
-        <p>Scan the PhonePe QR Code below or open your preferred UPI app, pay the total amount, and paste the 12-digit UTR transaction reference below.</p>
-        <img class="qr-scanner-img" src="https://raw.githubusercontent.com/vishalgiri4455-cyber/bpura-website/main/WhatsApp%20Image%202026-11-12%20at%2016.41.11.jpeg" alt="B PURA PhonePe QR Scanner">
+        <b>UPI ID: 9931843195@ybl</b> <button class="copy-btn" type="button" onclick="copyUPI()">Copy UPI ID</button>
+        <p>Open your preferred UPI app (GPay, PhonePe, Paytm), pay the total amount, and paste the 12-digit UTR transaction reference below.</p>
         <div class="field"><label for="utrNumber">UTR / TRANSACTION REFERENCE NUMBER *</label><input id="utrNumber" maxlength="40" placeholder="Enter 12-digit UTR after payment"></div>
         <div class="notice">Payment status: <b>Awaiting Verification</b> until verified by seller. (Never collect UPI PIN, OTP, or passwords).</div>
       </div>
@@ -502,7 +500,7 @@ const PRODUCTS = [
     name: "ALOE VERA SOAP",
     weight: "100g",
     price: 99,
-    image: "https://raw.githubusercontent.com/vishalgiri4455-cyber/bpura-website/main/Pura%20Aloe%20Vera%20Soap%20Advertisement.png",
+    image: "https://raw.githubusercontent.com/vishalgiri4455-cyber/bpura-website/main/Pura%20Aloe%20Vera%20Soap.png",
     subtitle: "Handcrafted hydrating aloe vera soap",
     badges: [],
     ingredients: "Aloe Vera, Coconut Oil, Castor Oil, Olive Oil, Palm Oil, Glycerine, Distilled Water."
@@ -603,7 +601,6 @@ function renderCareGallery() {
   const g = document.getElementById("careGallery");
   const items = [
     { img: "https://raw.githubusercontent.com/vishalgiri4455-cyber/bpura-website/main/B%20Pura%20Sandalwood%20Soap%20Benefits%20Poster.png", title: "Why B PURA Sandalwood Soap?" },
-    { img: "https://raw.githubusercontent.com/vishalgiri4455-cyber/bpura-website/main/Sandalwood%20Soap%20Ingredients%20Poster.png", title: "What's Inside? Pure Natural Ingredients" },
     { img: "https://raw.githubusercontent.com/vishalgiri4455-cyber/bpura-website/main/Pura%20Soap%20Skincare%20Steps.png", title: "How To Use - 4 Step Bathing Ritual" }
   ];
   g.innerHTML = items.map(item => `
@@ -821,7 +818,7 @@ function handleCheckoutSubmit(e) {
     }
     processOrderSuccess({
       paymentId: utr,
-      paymentMethod: "Manual UPI (bidyanandbharti@ybl)",
+      paymentMethod: "Manual UPI (9931843195@ybl)",
       status: "Awaiting Verification",
       name, mobile, address, pin, dist, delCharge, total
     });
@@ -908,7 +905,7 @@ function closeReceipt() {
 }
 
 function copyUPI() {
-  navigator.clipboard.writeText("bidyanandbharti@ybl");
+  navigator.clipboard.writeText("9931843195@ybl");
   toast("UPI ID copied!");
 }
 
@@ -954,20 +951,22 @@ function loadAdminData() {
   const saved = JSON.parse(localStorage.getItem("bpura_orders") || "[]");
   document.getElementById("orderCount").innerText = `(${saved.length} orders)`;
   
-  const container = document.getElementById("adminOrders");
-  if(saved.length === 0) {
-    container.innerHTML = `<p class="muted-note">No orders received yet.</p>`;
-    return;
-  }
-  container.innerHTML = saved.map(o => `
-    <div style="border:1px solid var(--line);border-radius:12px;padding:12px;margin:9px 0;font-size:12px">
-      <b>${o.orderId} - ₹${o.total}</b> (${o.date})<br>
-      Name: ${o.name} | Phone: ${o.mobile}<br>
-      Method: ${o.paymentMethod} | ID/UTR: ${o.paymentId}<br>
-      Distance: ${o.dist} km | Status: ${o.status}<br>
-      Address: ${o.address} - ${o.pin}
-    </div>
-  `).join('');
+  (function() {
+    const container = document.getElementById("adminOrders");
+    if(saved.length === 0) {
+      container.innerHTML = `<p class="muted-note">No orders received yet.</p>`;
+      return;
+    }
+    container.innerHTML = saved.map(o => `
+      <div style="border:1px solid var(--line);border-radius:12px;padding:12px;margin:9px 0;font-size:12px">
+        <b>${o.orderId} - ₹${o.total}</b> (${o.date})<br>
+        Name: ${o.name} | Phone: ${o.mobile}<br>
+        Method: ${o.paymentMethod} | ID/UTR: ${o.paymentId}<br>
+        Distance: ${o.dist} km | Status: ${o.status}<br>
+        Address: ${o.address} - ${o.pin}
+      </div>
+    `).join('');
+  })();
 }
 
 function saveSettings() {
